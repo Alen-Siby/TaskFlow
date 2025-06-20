@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowLeft } from 'lucide-react';
 import { TaskList } from './TaskList';
@@ -14,51 +14,86 @@ interface TaskAppProps {
 }
 
 export const TaskApp: React.FC<TaskAppProps> = ({ onBack }) => {
-  const { tasks, isLoading, addTask, updateTask, deleteTask, toggleTask, reorderTasks } = useTasks();
+  const { tasks, isLoading, addTask, updateTask, deleteTask, toggleTask, reorderTasks, setTasks } = useTasks();
   const { toasts, addToast, removeToast } = useToast();
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [editingTask, setEditingTask] = useState<Task | null>(null);
 
-  const handleAddTask = (data: TaskFormData) => {
+  const handleAddTask = async (data: TaskFormData) => {
     try {
-      const newTask = addTask(data);
-      addToast('success', 'Task created successfully!');
-      // Send to localhost:8081 as JSON, with 'title' as 'topic'
-      const { title, ...rest } = newTask;
-      const postData = { ...rest, topic: title };
-      fetch('http://localhost:8081', {
+      const postData = {
+        topic: data.title,
+        discription: data.description,
+        status: 'IN_PROGRESS',
+        priority: data.priority.toUpperCase(),
+        category: data.category.toUpperCase(),
+        dueDate: data.dueDate,
+      };
+      console.log('Form data to submit:', JSON.stringify(postData, null, 2));
+      const response = await fetch('http://localhost:8081/todo', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(postData),
-      }).catch((err) => {
-        // Optionally show a toast or log error
-        console.error('Failed to send task to server:', err);
       });
+      if (!response.ok) {
+        throw new Error('Failed to save task to backend');
+      }
+      const savedTask = await response.json();
+      addTask(savedTask);
+      addToast('success', 'Task created successfully!');
     } catch (error) {
       addToast('error', 'Failed to create task');
+      console.error(error);
     }
   };
 
-  const handleEditTask = (data: TaskFormData) => {
+  const handleEditTask = async (data: TaskFormData) => {
     if (!editingTask) return;
-    
     try {
-      updateTask(editingTask.id, data);
+      const postData = {
+        topic: data.title,
+        discription: data.description,
+        status: 'IN_PROGRESS',
+        priority: data.priority.toUpperCase(),
+        category: data.category.toUpperCase(),
+        dueDate: data.dueDate,
+      };
+      console.log('Edit data to submit:', JSON.stringify(postData, null, 2));
+      const response = await fetch(`http://localhost:8081/todo/${editingTask.id}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(postData),
+      });
+      if (!response.ok) {
+        throw new Error('Failed to update task in backend');
+      }
+      const updatedTask = await response.json();
+      updateTask(editingTask.id, updatedTask);
       addToast('success', 'Task updated successfully!');
       setEditingTask(null);
     } catch (error) {
       addToast('error', 'Failed to update task');
+      console.error(error);
     }
   };
 
-  const handleDeleteTask = (id: string) => {
+  const handleDeleteTask = async (id: string) => {
     try {
+      const response = await fetch(`http://localhost:8081/todo/${id}`, {
+        method: 'DELETE',
+      });
+      if (!response.ok) {
+        throw new Error('Failed to delete task in backend');
+      }
       deleteTask(id);
       addToast('success', 'Task deleted successfully!');
     } catch (error) {
       addToast('error', 'Failed to delete task');
+      console.error(error);
     }
   };
 
@@ -91,6 +126,37 @@ export const TaskApp: React.FC<TaskAppProps> = ({ onBack }) => {
       handleAddTask(data);
     }
   };
+
+  useEffect(() => {
+    // Fetch todos from backend on mount
+    const fetchTodos = async () => {
+      try {
+        const response = await fetch('http://localhost:8081/todo');
+        if (!response.ok) {
+          throw new Error('Failed to fetch todos from backend');
+        }
+        const backendTodos = await response.json();
+        // Map backend fields to frontend Task type
+        const mappedTodos = backendTodos.map((todo: any) => ({
+          ...todo,
+          title: todo.topic,
+          description: todo.discription,
+        }));
+        // Replace local state with backend todos
+        // If you use setTasks directly, otherwise use a method from useTasks
+        if (typeof setTasks === 'function') {
+          setTasks(mappedTodos);
+        } else if (typeof addTask === 'function') {
+          (mappedTodos as any[]).forEach((task: any) => addTask(task));
+        }
+      } catch (error) {
+        addToast('error', 'Failed to load tasks from backend');
+        console.error(error);
+      }
+    };
+    fetchTodos();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-purple-50 dark:from-gray-900 dark:to-gray-800">

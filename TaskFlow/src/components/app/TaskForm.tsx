@@ -84,6 +84,9 @@ export const TaskForm: React.FC<TaskFormProps> = ({
       dueDate: formData.dueDate ? new Date(formData.dueDate).toISOString() : '',
     };
 
+    // Log the form data as JSON for debugging
+    console.log('Form data to submit:', JSON.stringify(submitData, null, 2));
+
     onSubmit(submitData);
     onClose();
   };
@@ -95,7 +98,7 @@ export const TaskForm: React.FC<TaskFormProps> = ({
       const postData = { ...rest, topic: title };
 
       // Send to Spring Boot backend
-      const response = await fetch('http://localhost:8081', {
+      const response = await fetch('http://localhost:8081/todo', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

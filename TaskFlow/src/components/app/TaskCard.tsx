@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useSortable } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
 import { MoreVertical, Calendar, Flag, Edit2, Trash2 } from 'lucide-react';
 import { Task } from '../../types';
+import { useTasks } from '../../hooks/useTasks';
+import { useToast } from "../ui/Toast";
 
 interface TaskCardProps {
   task: Task;
@@ -43,6 +45,41 @@ export const TaskCard: React.FC<TaskCardProps> = ({ task, onToggle, onEdit, onDe
   ];
 
   const categoryColorIndex = Math.abs(task.category.charCodeAt(0)) % categoryColors.length;
+
+  const { tasks, isLoading, addTask, updateTask, deleteTask, toggleTask, reorderTasks, setTasks } = useTasks();
+  const { addToast } = useToast();
+
+  useEffect(() => {
+    // Fetch todos from backend on mount
+    const fetchTodos = async () => {
+      try {
+        const response = await fetch('http://localhost:8081/todo');
+        if (!response.ok) {
+          throw new Error('Failed to fetch todos from backend');
+        }
+        const backendTodos = await response.json();
+        // Map backend fields to frontend Task type
+        const mappedTodos = backendTodos.map((todo: any) => ({
+          ...todo,
+          id: String(todo.tid || todo.id || todo.TId), // ensure id is a string
+          title: todo.topic,
+          description: todo.discription,
+          priority: todo.priority?.toLowerCase?.() || 'medium',
+          category: todo.category?.toLowerCase?.() || '',
+          dueDate: todo.dueDate,
+          completed: todo.status === 'COMPLETED', // or however you want to map status
+          createdAt: todo.createdAt,
+          updatedAt: todo.updatedAt,
+        }));
+        setTasks(mappedTodos);
+      } catch (error) {
+        addToast('error', 'Failed to load tasks from backend');
+        console.error(error);
+      }
+    };
+    fetchTodos();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <motion.div
