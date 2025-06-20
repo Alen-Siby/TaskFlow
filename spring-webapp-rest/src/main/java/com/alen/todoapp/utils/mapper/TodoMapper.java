@@ -16,6 +16,9 @@ public class TodoMapper {
         todo.setTopic(todoDto.getTopic());
         todo.setDiscription(todoDto.getDiscription());
         todo.setStatus(todoDto.getStatus());
+        todo.setPriority(todoDto.getPriority());
+        todo.setCategory(todoDto.getCategory());
+        todo.setDueDate(todoDto.getDueDate());
         todo.setCreatedAt(todoDto.getCreatedAt());
         todo.setUpdatedAt(todoDto.getUpdatedAt());
         return todo;
@@ -31,6 +34,9 @@ public class TodoMapper {
         todoDto.setTopic(todo.getTopic());
         todoDto.setDiscription(todo.getDiscription());
         todoDto.setStatus(todo.getStatus());
+        todoDto.setPriority(todo.getPriority());
+        todoDto.setCategory(todo.getCategory());
+        todoDto.setDueDate(todo.getDueDate());
         todoDto.setCreatedAt(todo.getCreatedAt());
         todoDto.setUpdatedAt(todo.getUpdatedAt());
         return todoDto;

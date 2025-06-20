@@ -13,7 +13,7 @@ import jakarta.validation.Valid;
 
 @RequestMapping("/todo")
 @RestController
-@CrossOrigin(origins="http://localhost:3000")
+@CrossOrigin(origins="http://localhost:5173/")
 public class TodoRestController {
 
     private final TodoService service;
@@ -39,6 +39,10 @@ public class TodoRestController {
 
     @PostMapping()
     public ResponseEntity<?> addTodo(@RequestBody @Valid TodoDto todoDto) {
+        if (todoDto.getDueDate() == null) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                    .body(java.util.Collections.singletonMap("error", "Due date is missing"));
+        }
         TodoDto createdTodo = service.addTodo(todoDto);
         return new ResponseEntity<>(createdTodo, HttpStatus.CREATED);
     }

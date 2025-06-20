@@ -23,6 +23,9 @@ public class Todo {
     private String Topic;
     private String Discription;
     private Status status;
+    private Priority priority;
+    private Category category;
+    private Date dueDate;
 
     @CreationTimestamp
     private Timestamp createdAt;
@@ -35,6 +38,30 @@ public class Todo {
 
     public void setStatus(Status status) {
         this.status = status;
+    }
+
+    public Priority getPriority() {
+        return priority;
+    }
+
+    public void setPriority(Priority priority) {
+        this.priority = priority;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+
+    public Date getDueDate() {
+        return dueDate;
+    }
+
+    public void setDueDate(Date dueDate) {
+        this.dueDate = dueDate;
     }
 
     public Timestamp getCreatedAt() {

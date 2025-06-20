@@ -61,6 +61,15 @@ public class TodoServiceImp implements TodoService {
             if (todoDto.getStatus() == null) {
                 todoDto.setStatus(Status.IN_PROGRESS);
             }
+            // Set default priority if not provided
+            if (todoDto.getPriority() == null) {
+                todoDto.setPriority(com.alen.todoapp.model.Priority.LOW);
+            }
+            // Set default category if not provided
+            if (todoDto.getCategory() == null) {
+                todoDto.setCategory(com.alen.todoapp.model.Category.PERSONAL);
+            }
+            // Remove due date check from service (now handled in controller)
             Todo todo = mapper.toTodo(todoDto, true);
             Todo saved = repo.save(todo);
             return mapper.toTodoDto(saved);

@@ -7,6 +7,8 @@ import java.sql.Timestamp;
 import java.util.Date;
 
 import com.alen.todoapp.model.Status;
+import com.alen.todoapp.model.Priority;
+import com.alen.todoapp.model.Category;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -31,6 +33,9 @@ public class TodoDto {
 
     // Removed @NotNull(message = "Status is required") to allow defaulting in service
     private Status status;
+    private Priority priority;
+    private Category category;
+    private Date dueDate;
 
 
     private Timestamp createdAt;
@@ -67,6 +72,25 @@ public class TodoDto {
 
     public void setStatus(Status status) {
         this.status = status;
+    }
+
+    public Priority getPriority() {
+        return priority;
+    }
+    public void setPriority(Priority priority) {
+        this.priority = priority;
+    }
+    public Category getCategory() {
+        return category;
+    }
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+    public Date getDueDate() {
+        return dueDate;
+    }
+    public void setDueDate(Date dueDate) {
+        this.dueDate = dueDate;
     }
 
     public Timestamp getCreatedAt() {
