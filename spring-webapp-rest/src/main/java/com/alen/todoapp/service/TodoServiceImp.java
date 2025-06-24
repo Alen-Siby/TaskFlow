@@ -1,20 +1,23 @@
 package com.alen.todoapp.service;
 
 import com.alen.todoapp.dto.TodoDto;
+import com.alen.todoapp.exception.AppException;
 import com.alen.todoapp.model.Status;
 import com.alen.todoapp.model.Todo;
 import com.alen.todoapp.repo.TodoRepo;
 import com.alen.todoapp.utils.mapper.TodoMapper;
-//import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-//@RequiredArgsConstructorC
 @Service
 public class TodoServiceImp implements TodoService {
+    private static final Logger logger = LoggerFactory.getLogger(TodoServiceImp.class);
     private final TodoRepo repo;
     private final TodoMapper mapper;
 
@@ -25,102 +28,89 @@ public class TodoServiceImp implements TodoService {
 
     @Override
     public List<TodoDto> getAllTodos() {
-        try {
-            List<Todo> todos = repo.findAll();
-            return todos.stream().map(mapper::toTodoDto).toList();
-        } catch (Exception e) {
-            throw new RuntimeException("Failed to fetch todos", e);
-        }
+        List<Todo> todos = repo.findAll();
+        return todos.stream().map(mapper::toTodoDto).toList();
     }
 
     @Override
     public TodoDto getTodoById(int id) {
         if (id < 0) {
-            throw new IllegalArgumentException("ID cannot be negative");
+            throw new AppException("ID cannot be negative", HttpStatus.BAD_REQUEST);
         }
-        try {
-            Todo todo = repo.findById(id).orElseThrow(() ->
-                new RuntimeException("Todo with id " + id + " not found")
-            );
-            return mapper.toTodoDto(todo);
-        } catch (Exception e) {
-            throw new RuntimeException("Todo  not found", e);
-        }
+        Todo todo = repo.findById(id)
+                .orElseThrow(() -> new AppException("Todo with id " + id + " not found", HttpStatus.NOT_FOUND));
+        return mapper.toTodoDto(todo);
     }
 
     @Override
     public TodoDto addTodo(TodoDto todoDto) {
-        // Check for duplicate topic and throw IllegalArgumentException with specific message
         if (todoDto.getTopic() != null && repo.findAll().stream()
                 .filter(t -> t.getTopic() != null)
                 .anyMatch(t -> t.getTopic().equalsIgnoreCase(todoDto.getTopic()))) {
-            throw new IllegalArgumentException("Todo with title '" + todoDto.getTopic() + "' already exists");
+            throw new AppException("Todo with title '" + todoDto.getTopic() + "' already exists", HttpStatus.CONFLICT);
         }
-        try {
-            // Set status to IN_PROGRESS if not provided
-            if (todoDto.getStatus() == null) {
-                todoDto.setStatus(Status.IN_PROGRESS);
-            }
-            // Set default priority if not provided
-            if (todoDto.getPriority() == null) {
-                todoDto.setPriority(com.alen.todoapp.model.Priority.LOW);
-            }
-            // Set default category if not provided
-            if (todoDto.getCategory() == null) {
-                todoDto.setCategory(com.alen.todoapp.model.Category.PERSONAL);
-            }
-            // Remove due date check from service (now handled in controller)
-            Todo todo = mapper.toTodo(todoDto, true);
-            Todo saved = repo.save(todo);
-            return mapper.toTodoDto(saved);
-        } catch (Exception e) {
-            // For all other exceptions, throw a generic message
-            throw new RuntimeException("Failed to add todo", e);
+        if (todoDto.getStatus() == null) {
+            todoDto.setStatus(Status.IN_PROGRESS);
         }
+        if (todoDto.getPriority() == null) {
+            todoDto.setPriority(com.alen.todoapp.model.Priority.LOW);
+        }
+        if (todoDto.getCategory() == null) {
+            todoDto.setCategory(com.alen.todoapp.model.Category.PERSONAL);
+        }
+        Todo todo = mapper.toTodo(todoDto, true);
+        Todo saved = repo.save(todo);
+        logger.info("Added new Todo: {}", saved);
+        return mapper.toTodoDto(saved);
     }
 
     @Override
     public TodoDto updateTodo(int id, TodoDto todoDto) {
         if (id < 0) {
-            throw new IllegalArgumentException("ID cannot be negative");
+            throw new AppException("ID cannot be negative", HttpStatus.BAD_REQUEST);
         }
-        try {
-            if (!repo.existsById(id)) {
-                throw new RuntimeException("Todo with id " + id + " not found");
-            }
-            Todo todo = mapper.toTodo(todoDto);
-            todo.setTId(id);
-            Todo updated = repo.save(todo);
-            return mapper.toTodoDto(updated);
-        } catch (Exception e) {
-            throw new RuntimeException("Failed to update todo", e);
+        if (!repo.existsById(id)) {
+            throw new AppException("Todo with id " + id + " not found", HttpStatus.NOT_FOUND);
         }
+        Todo todo = mapper.toTodo(todoDto);
+        todo.setTId(id);
+        Todo updated = repo.save(todo);
+        logger.info("Updated Todo with id {}: {}", id, updated);
+        return mapper.toTodoDto(updated);
     }
 
     @Override
     public boolean deleteTodo(int id) {
         if (id < 0) {
-            throw new IllegalArgumentException("ID cannot be negative");
+            throw new AppException("ID cannot be negative", HttpStatus.BAD_REQUEST);
         }
-        try {
-            if (!repo.existsById(id)) {
-                throw new RuntimeException("Todo with id " + id + " not found");
-            }
-            repo.deleteById(id);
-            return true;
-        } catch (Exception e) {
-            throw new RuntimeException("Failed to delete todo", e);
+        if (!repo.existsById(id)) {
+            throw new AppException("Todo with id " + id + " not found", HttpStatus.NOT_FOUND);
         }
+        repo.deleteById(id);
+        logger.info("Deleted Todo with id {}", id);
+        return true;
     }
 
-//    @Override
-//    public void load() {
-//        List<Todo> todos = new ArrayList<>(List.of(
-//                new Todo(1, new Date(), "Learn Spring Boot", "Complete the Spring Boot tutorial", true),
-//                new Todo(2, new Date(), "Write REST API", "Develop REST endpoints for Todo app", false),
-//                new Todo(3, new Date(), "Test Application", "Write unit tests for the application", false),
-//                new Todo(4, new Date(), "Deploy App", "Deploy the application to production", false)
-//        ));
-//        repo.saveAll(todos);
-//    }
+    @Override
+    public void load() {
+        List<Todo> todos = new ArrayList<>();
+        todos.add(createTodoWithDefaults("Learn Spring Boot", "Complete the Spring Boot tutorial", Status.IN_PROGRESS, new Date(125, 6, 30)));
+        todos.add(createTodoWithDefaults("Write REST API", "Develop REST endpoints for Todo app", Status.IN_PROGRESS, new Date(125, 7, 15)));
+        todos.add(createTodoWithDefaults("Test Application", "Write unit tests for the application", Status.IN_PROGRESS, new Date(125, 7, 25)));
+        todos.add(createTodoWithDefaults("Deploy App", "Deploy the application to production", Status.IN_PROGRESS, new Date(125, 8, 5)));
+        repo.saveAll(todos);
+        logger.info("Loaded default Todos: {}", todos.size());
+    }
+
+    private Todo createTodoWithDefaults(String topic, String description, Status status, Date dueDate) {
+        Todo todo = new Todo(topic, description, status, dueDate);
+        if (todo.getPriority() == null) {
+            todo.setPriority(com.alen.todoapp.model.Priority.LOW);
+        }
+        if (todo.getCategory() == null) {
+            todo.setCategory(com.alen.todoapp.model.Category.PERSONAL);
+        }
+        return todo;
+    }
 }

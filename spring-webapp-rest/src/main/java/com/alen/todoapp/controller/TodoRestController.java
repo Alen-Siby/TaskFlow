@@ -59,9 +59,9 @@ public class TodoRestController {
         return ResponseEntity.ok().body("Todo deleted successfully");
     }
 
-//    @GetMapping("load")
-//    public String loadData() {
-//        service.load();
-//        return "success";
-//    }
+    @PostMapping("/load")
+    public ResponseEntity<Void> loadData() {
+        service.load();
+        return ResponseEntity.ok().build();
+    }
 }

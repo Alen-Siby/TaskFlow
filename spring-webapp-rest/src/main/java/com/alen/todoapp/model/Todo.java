@@ -103,4 +103,13 @@ public class Todo {
     public void setTId(int TId) {
         this.TId = TId;
     }
+
+    public Todo() {}
+
+    public Todo(String topic, String discription, Status status, Date dueDate) {
+        this.Topic = topic;
+        this.Discription = discription;
+        this.status = status;
+        this.dueDate = dueDate;
+    }
 }

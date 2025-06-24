@@ -21,5 +21,6 @@ public interface TodoService {
     // Delete a todo by ID
     boolean deleteTodo(int id);
 
-//    void load();
+    // Load sample todos
+    void load();
 }
