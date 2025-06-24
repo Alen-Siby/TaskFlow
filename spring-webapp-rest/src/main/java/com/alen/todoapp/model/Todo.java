@@ -13,7 +13,7 @@ import static com.alen.todoapp.model.Status.*;
 
 
 @Entity
-//@Table(name = "todos")
+@Table(name = "todos")
 
 public class Todo {
     @Id
@@ -75,5 +75,20 @@ public class Todo {
 
     public void setTId(int TId) {
         this.TId = TId;
+    }
+
+    public Todo() {}
+
+    public Todo(String Topic, String Discription, Status status) {
+        this.Topic = Topic;
+        this.Discription = Discription;
+        this.status = status;
+    }
+
+    public Todo(int TId, String Topic, String Discription, Status status) {
+        this.TId = TId;
+        this.Topic = Topic;
+        this.Discription = Discription;
+        this.status = status;
     }
 }
