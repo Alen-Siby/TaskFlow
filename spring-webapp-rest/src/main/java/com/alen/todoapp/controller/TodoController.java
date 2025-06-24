@@ -1,11 +1,9 @@
 package com.alen.todoapp.controller;
 
 import com.alen.todoapp.dto.TodoDto;
-import com.alen.todoapp.model.Todo;
 import com.alen.todoapp.service.TodoService;
 import com.alen.todoapp.utils.mapper.TodoMapper;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,51 +11,53 @@ import jakarta.validation.Valid;
 
 @RequestMapping("/todo")
 @RestController
-@CrossOrigin(origins="http://localhost:3000")
-public class TodoRestController {
+@CrossOrigin(origins="http://localhost:5173/")
+public class TodoController {
 
-    private final TodoService service;
-    private final TodoMapper mapper;
-
+    private final TodoService todoservice;
 
 
-    public TodoRestController(TodoService service, TodoMapper mapper) {
-        this.service = service;
-        this.mapper = mapper;
+
+
+    public TodoController(TodoService todoservice) {
+        this.todoservice = todoservice;
+
     }
 
     @GetMapping()
     public ResponseEntity<?> getAllTodos() {
-        return ResponseEntity.ok(service.getAllTodos());
+        return ResponseEntity.ok(todoservice.getAllTodos());
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<?> getTodo(@PathVariable int id) {
-        TodoDto todoDto = service.getTodoById(id);
+        TodoDto todoDto = todoservice.getTodoById(id);
         return new ResponseEntity<>(todoDto, HttpStatus.OK);
     }
 
     @PostMapping()
     public ResponseEntity<?> addTodo(@RequestBody @Valid TodoDto todoDto) {
-        TodoDto createdTodo = service.addTodo(todoDto);
+
+        TodoDto createdTodo = todoservice.addTodo(todoDto);
         return new ResponseEntity<>(createdTodo, HttpStatus.CREATED);
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<?> updateTodo(@PathVariable int id, @RequestBody @Valid TodoDto todoDto) {
-        TodoDto updated = service.updateTodo(id, todoDto);
+
+        TodoDto updated = todoservice.updateTodo(id, todoDto);
         return new ResponseEntity<>(updated, HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteTodo(@PathVariable int id) {
-        service.deleteTodo(id);
-        return ResponseEntity.ok().body("Todo deleted successfully");
+        todoservice.deleteTodo(id);
+        return ResponseEntity.noContent().build();
     }
 
-//    @GetMapping("load")
-//    public String loadData() {
+//    @PostMapping("/load")
+//    public ResponseEntity<?> loadData() {
 //        service.load();
-//        return "success";
+//        return ResponseEntity.ok().build();
 //    }
 }

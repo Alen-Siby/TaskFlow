@@ -1,0 +1,30 @@
+Jun 20, 2025 3:43:41 PM com.alen.todoapp.service.TodoServiceImp getTodoById
+WARNING: Attempted to fetch todo with negative ID: -5
+Jun 23, 2025 10:30:56 AM com.alen.todoapp.service.TodoServiceImp deleteTodo
+INFO: Todo deleted successfully: 2
+Jun 23, 2025 10:35:11 AM com.alen.todoapp.service.TodoServiceImp deleteTodo
+INFO: Todo deleted successfully: 9
+Jun 24, 2025 11:55:09 AM com.alen.todoapp.service.TodoServiceImp getTodoById
+WARNING: Attempted to fetch todo with negative ID: -5
+Jun 24, 2025 11:58:09 AM com.alen.todoapp.service.TodoServiceImp getTodoById
+WARNING: Attempted to fetch todo with negative ID: -2
+Jun 24, 2025 11:58:11 AM com.alen.todoapp.service.TodoServiceImp getTodoById
+WARNING: Attempted to fetch todo with negative ID: -2
+Jun 24, 2025 11:58:56 AM com.alen.todoapp.service.TodoServiceImp getTodoById
+SEVERE: Failed to fetch todo by id: JDBC exception executing SQL [select t1_0.tid,t1_0.discription,t1_0.topic,t1_0.created_at,t1_0.status,t1_0.updated_at from todos t1_0 where t1_0.tid=?] [ERROR: relation "todos" does not exist
+  Position: 94] [n/a]; SQL [n/a]
+Jun 24, 2025 11:59:04 AM com.alen.todoapp.service.TodoServiceImp getAllTodos
+SEVERE: Failed to fetch todos: JDBC exception executing SQL [select t1_0.tid,t1_0.discription,t1_0.topic,t1_0.created_at,t1_0.status,t1_0.updated_at from todos t1_0] [ERROR: relation "todos" does not exist
+  Position: 94] [n/a]; SQL [n/a]
+Jun 24, 2025 11:59:34 AM com.alen.todoapp.service.TodoServiceImp getAllTodos
+SEVERE: Failed to fetch todos: JDBC exception executing SQL [select t1_0.tid,t1_0.discription,t1_0.topic,t1_0.created_at,t1_0.status,t1_0.updated_at from todos t1_0] [ERROR: relation "todos" does not exist
+  Position: 94] [n/a]; SQL [n/a]
+Jun 24, 2025 12:01:19 PM com.alen.todoapp.service.TodoServiceImp getAllTodos
+SEVERE: Failed to fetch todos: JDBC exception executing SQL [select t1_0.tid,t1_0.discription,t1_0.topic,t1_0.created_at,t1_0.status,t1_0.updated_at from todos t1_0] [ERROR: relation "todos" does not exist
+  Position: 94] [n/a]; SQL [n/a]
+Jun 24, 2025 1:00:04 PM com.alen.todoapp.service.TodoServiceImp load
+INFO: Sample todos loaded.
+Jun 24, 2025 1:00:56 PM com.alen.todoapp.service.TodoServiceImp addTodo
+INFO: Todo added successfully: 5
+Jun 24, 2025 1:10:33 PM com.alen.todoapp.service.TodoServiceImp getTodoById
+WARNING: Attempted to fetch todo with negative ID: -1
