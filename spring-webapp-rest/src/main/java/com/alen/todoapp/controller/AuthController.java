@@ -1,9 +1,11 @@
 package com.alen.todoapp.controller;
 
-import com.alen.todoapp.security.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import com.alen.todoapp.model.Users;
@@ -13,31 +15,32 @@ import com.alen.todoapp.service.AuthService;
 import com.alen.todoapp.exception.AuthException;
 
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.FieldError;
 import jakarta.validation.Valid;
 
+import jakarta.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 @RequestMapping("/auth")
 public class AuthController {
-    private final JwtUtil jwtUtil;
     private final AuthService authService;
     private final PasswordEncoder passwordEncoder;
+    private final AuthenticationManager authenticationManager;
 
     @Autowired
-    public AuthController(JwtUtil jwtUtil, AuthService authService, PasswordEncoder passwordEncoder) {
-        this.jwtUtil = jwtUtil;
+    public AuthController(AuthService authService, PasswordEncoder passwordEncoder, AuthenticationManager authenticationManager) {
         this.authService = authService;
         this.passwordEncoder = passwordEncoder;
+        this.authenticationManager = authenticationManager;
     }
 
     @PostMapping("/login")
-    public ResponseEntity<?> login(@Valid @RequestBody UserDto userDto, BindingResult bindingResult) {
+    public ResponseEntity<?> login(@Valid @RequestBody UserDto userDto, BindingResult bindingResult, HttpSession session) {
         String username = userDto.getUsername();
         String email = userDto.getEmail();
         String password = userDto.getPassword();
@@ -57,13 +60,19 @@ public class AuthController {
             authService.getUserByEmail(email) : authService.getUserByUsername(username);
         if (user == null || !passwordEncoder.matches(password, user.getPassword()))
             throw new AuthException("Invalid username/email or password");
-        String token = jwtUtil.generateToken(user.getUsername());
+        // Authenticate and create session
+        Authentication authentication = authenticationManager.authenticate(
+            new UsernamePasswordAuthenticationToken(user.getUsername(), password)
+        );
+        SecurityContextHolder.getContext().setAuthentication(authentication);
+        session.setAttribute("SPRING_SECURITY_CONTEXT", SecurityContextHolder.getContext());
+        String sessionId = session.getId();
         return ResponseEntity.ok(Map.of(
             "success", true,
-            "token", token,
             "userId", user.getId(),
             "username", user.getUsername(),
             "email", user.getEmail(),
+            "sessionId", sessionId,
             "message", "Login successful"
         ));
     }

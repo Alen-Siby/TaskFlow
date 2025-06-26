@@ -4,7 +4,9 @@ import com.alen.todoapp.dto.TodoDto;
 import com.alen.todoapp.exception.AppException;
 import com.alen.todoapp.model.Status;
 import com.alen.todoapp.model.Todo;
+import com.alen.todoapp.model.Users;
 import com.alen.todoapp.repo.TodoRepo;
+import com.alen.todoapp.repo.UserRepo;
 import com.alen.todoapp.utils.mapper.TodoMapper;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -21,11 +23,13 @@ public class TodoServiceImp implements TodoService {
     private static final Logger logger = LogManager.getLogger(TodoServiceImp.class);
     private final TodoRepo repo;
     private final TodoMapper mapper;
+    private final UserRepo userRepo;
 
     @Autowired
-    public TodoServiceImp(TodoRepo repo, TodoMapper mapper) {
+    public TodoServiceImp(TodoRepo repo, TodoMapper mapper, UserRepo userRepo) {
         this.repo = repo;
         this.mapper = mapper;
+        this.userRepo = userRepo;
     }
 
     @Override
@@ -61,6 +65,13 @@ public class TodoServiceImp implements TodoService {
             todoDto.setCategory(com.alen.todoapp.model.Category.PERSONAL);
         }
         Todo todo = mapper.toTodo(todoDto, true);
+        // If userId is null, throw a clear error (should not happen if controller sets it)
+        if (todoDto.getUserId() == null) {
+            throw new AppException("UserId is required for creating a Todo. Please ensure you are authenticated and not sending userId as null.", HttpStatus.BAD_REQUEST);
+        }
+        Users user = userRepo.findById(todoDto.getUserId())
+                .orElseThrow(() -> new AppException("User not found with id: " + todoDto.getUserId(), HttpStatus.NOT_FOUND));
+        todo.setUser(user);
         Todo saved = repo.save(todo);
         logger.info("Added new Todo: " + saved);
         return mapper.toTodoDto(saved);

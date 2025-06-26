@@ -39,6 +39,7 @@ public class TodoMapper {
         todoDto.setDueDate(todo.getDueDate());
         todoDto.setCreatedAt(todo.getCreatedAt());
         todoDto.setUpdatedAt(todo.getUpdatedAt());
+        todoDto.setUserId(todo.getUser() != null ? todo.getUser().getId() : null);
         return todoDto;
 
     }

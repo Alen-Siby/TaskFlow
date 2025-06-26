@@ -1,6 +1,7 @@
 package com.alen.todoapp.model;
 
 import jakarta.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -17,6 +18,9 @@ public class Users {
 
     @Column(nullable = false, unique = true)
     private String email;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Todo> todos;
 
     // Constructors
     public Users() {}
@@ -59,5 +63,12 @@ public class Users {
     public void setEmail(String email) {
         this.email = email;
     }
-}
 
+    public List<Todo> getTodos() {
+        return todos;
+    }
+
+    public void setTodos(List<Todo> todos) {
+        this.todos = todos;
+    }
+}
