@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:15
+    container_name: todoapp-db
+    environment:
+      POSTGRES_DB: Student
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 3801
+    ports:
+      - "5432:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    networks:
+      - todoapp-net
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - db
+    ports:
+      - "8081:8081"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/Student
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: 3801
+    networks:
+      - todoapp-net
+
+volumes:
+  db_data:
+
+networks:
+  todoapp-net:
+    driver: bridge

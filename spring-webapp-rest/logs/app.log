@@ -1,0 +1,661 @@
+[2025-06-25 09:58:14.299] [WARN ] [org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[2025-06-25 09:58:15.065] [INFO ] [org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer] - LiveReload server is running on port 35729
+[2025-06-25 09:58:15.099] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8081"]
+[2025-06-25 09:58:15.132] [INFO ] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] - Tomcat started on port 8081 (http) with context path '/'
+[2025-06-25 09:58:15.146] [INFO ] [com.alen.todoapp.SpringWebappRestApplication] - Started SpringWebappRestApplication in 7.341 seconds (process running for 8.449)
+[2025-06-25 09:59:15.308] [INFO ] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2025-06-25 09:59:15.308] [INFO ] [org.springframework.web.servlet.DispatcherServlet] - Initializing Servlet 'dispatcherServlet'
+[2025-06-25 09:59:15.311] [INFO ] [org.springframework.web.servlet.DispatcherServlet] - Completed initialization in 1 ms
+[2025-06-25 09:59:15.416] [WARN ] [org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver] - Resolved [com.alen.todoapp.exception.AppException: ID cannot be negative]
+[2025-06-25 10:14:05.780] [WARN ] [org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver] - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `com.alen.todoapp.model.Priority` from String "low": not one of the values accepted for Enum class: [HIGH, VERY_HIGH, LOW, MEDIUM]]
+[2025-06-25 10:22:23.666] [WARN ] [org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver] - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `com.alen.todoapp.model.Priority` from String "low": not one of the values accepted for Enum class: [HIGH, VERY_HIGH, LOW, MEDIUM]]
+[2025-06-25 10:24:28.701] [WARN ] [org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver] - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `com.alen.todoapp.model.Priority` from String "low": not one of the values accepted for Enum class: [HIGH, VERY_HIGH, LOW, MEDIUM]]
+[2025-06-25 10:25:48.855] [INFO ] [com.alen.todoapp.service.TodoServiceImp] - Updated Todo with id 16: com.alen.todoapp.model.Todo@2af50422
+[2025-06-25 10:40:16.210] [INFO ] [com.alen.todoapp.service.TodoServiceImp] - Updated Todo with id 8: com.alen.todoapp.model.Todo@1af63b29
+[2025-06-25 10:40:21.067] [INFO ] [com.alen.todoapp.service.TodoServiceImp] - Updated Todo with id 8: com.alen.todoapp.model.Todo@603188e9
+[2025-06-25 10:41:54.962] [INFO ] [com.alen.todoapp.service.TodoServiceImp] - Updated Todo with id 8: com.alen.todoapp.model.Todo@5180fe56
+[2025-06-25 10:42:03.840] [INFO ] [com.alen.todoapp.service.TodoServiceImp] - Updated Todo with id 8: com.alen.todoapp.model.Todo@2dbc016b
+[2025-06-25 12:09:21.640] [WARN ] [com.zaxxer.hikari.pool.HikariPool] - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=9m29s44ms863µs900ns).
+[2025-06-25 13:16:37.582] [WARN ] [com.zaxxer.hikari.pool.HikariPool] - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=24m15s541ms798µs400ns).
+[2025-06-25 14:17:54.680] [WARN ] [com.zaxxer.hikari.pool.HikariPool] - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=50m16s921ms111µs500ns).
+[2025-06-25 14:36:03.147] [WARN ] [com.zaxxer.hikari.pool.HikariPool] - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=10m38s311ms138µs600ns).
+[2025-06-25 15:06:07.617] [INFO ] [org.springframework.boot.devtools.autoconfigure.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener] - Restarting due to 7 class path changes (7 additions, 0 deletions, 0 modifications)
+[2025-06-25 15:06:07.644] [INFO ] [org.springframework.boot.web.embedded.tomcat.GracefulShutdown] - Commencing graceful shutdown. Waiting for active requests to complete
+[2025-06-25 15:06:07.654] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Pausing ProtocolHandler ["http-nio-8081"]
+[2025-06-25 15:06:07.679] [INFO ] [org.springframework.boot.web.embedded.tomcat.GracefulShutdown] - Graceful shutdown complete
+[2025-06-25 15:06:07.680] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Stopping ProtocolHandler ["http-nio-8081"]
+[2025-06-25 15:06:10.424] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8081"]
+[2025-06-25 15:06:12.861] [INFO ] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2025-06-25 15:06:43.387] [WARN ] [org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[2025-06-25 15:06:44.227] [INFO ] [org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer] - LiveReload server is running on port 35729
+[2025-06-25 15:06:44.265] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8081"]
+[2025-06-25 15:06:44.293] [INFO ] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] - Tomcat started on port 8081 (http) with context path '/'
+[2025-06-25 15:06:44.311] [INFO ] [com.alen.todoapp.SpringWebappRestApplication] - Started SpringWebappRestApplication in 7.559 seconds (process running for 8.674)
+[2025-06-25 15:06:53.085] [INFO ] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2025-06-25 15:06:53.086] [INFO ] [org.springframework.web.servlet.DispatcherServlet] - Initializing Servlet 'dispatcherServlet'
+[2025-06-25 15:06:53.088] [INFO ] [org.springframework.web.servlet.DispatcherServlet] - Completed initialization in 2 ms
+[2025-06-25 15:06:53.151] [WARN ] [org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver] - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' is not supported]
+[2025-06-25 15:07:49.010] [INFO ] [org.springframework.boot.devtools.autoconfigure.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener] - Restarting due to 1 class path change (0 additions, 1 deletion, 0 modifications)
+[2025-06-25 15:07:49.024] [INFO ] [org.springframework.boot.web.embedded.tomcat.GracefulShutdown] - Commencing graceful shutdown. Waiting for active requests to complete
+[2025-06-25 15:07:49.030] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Pausing ProtocolHandler ["http-nio-8081"]
+[2025-06-25 15:07:49.086] [INFO ] [org.springframework.boot.web.embedded.tomcat.GracefulShutdown] - Graceful shutdown complete
+[2025-06-25 15:07:49.087] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Stopping ProtocolHandler ["http-nio-8081"]
+[2025-06-25 15:07:50.375] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8081"]
+[2025-06-25 15:07:51.777] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Pausing ProtocolHandler ["http-nio-8081"]
+[2025-06-25 15:07:51.798] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Stopping ProtocolHandler ["http-nio-8081"]
+[2025-06-25 15:07:53.105] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8081"]
+[2025-06-25 15:07:58.607] [INFO ] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2025-06-25 15:10:01.241] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Pausing ProtocolHandler ["http-nio-8081"]
+[2025-06-25 15:10:01.263] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Stopping ProtocolHandler ["http-nio-8081"]
+[2025-06-25 15:10:02.345] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8081"]
+[2025-06-25 15:10:06.737] [INFO ] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2025-06-25 15:16:21.990] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Pausing ProtocolHandler ["http-nio-8081"]
+[2025-06-25 15:16:22.010] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Stopping ProtocolHandler ["http-nio-8081"]
+[2025-06-25 15:16:23.051] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8081"]
+[2025-06-25 15:19:45.595] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Pausing ProtocolHandler ["http-nio-8081"]
+[2025-06-25 15:19:45.617] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Stopping ProtocolHandler ["http-nio-8081"]
+[2025-06-25 15:22:10.808] [WARN ] [org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[2025-06-25 15:22:11.780] [INFO ] [org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer] - LiveReload server is running on port 35729
+[2025-06-25 15:22:11.818] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8081"]
+[2025-06-25 15:22:11.890] [INFO ] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] - Tomcat started on port 8081 (http) with context path '/'
+[2025-06-25 15:22:11.907] [INFO ] [com.alen.todoapp.SpringWebappRestApplication] - Started SpringWebappRestApplication in 8.129 seconds (process running for 9.24)
+[2025-06-25 15:31:05.438] [WARN ] [com.zaxxer.hikari.pool.HikariPool] - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=4m26s684ms303µs700ns).
+[2025-06-25 15:31:11.597] [INFO ] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2025-06-25 15:31:11.598] [INFO ] [org.springframework.web.servlet.DispatcherServlet] - Initializing Servlet 'dispatcherServlet'
+[2025-06-25 15:31:11.598] [INFO ] [org.springframework.web.servlet.DispatcherServlet] - Completed initialization in 0 ms
+[2025-06-25 15:31:11.730] [INFO ] [com.alen.todoapp.service.UserServiceImp] - Attempting to add user: john_doe
+[2025-06-25 15:31:11.844] [INFO ] [com.alen.todoapp.service.UserServiceImp] - User saved with id: 1
+[2025-06-25 15:31:23.023] [WARN ] [org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver] - Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource user.]
+[2025-06-25 16:00:39.045] [WARN ] [com.zaxxer.hikari.pool.HikariPool] - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=23m33s590ms449µs400ns).
+[2025-06-25 16:09:10.915] [WARN ] [com.zaxxer.hikari.pool.HikariPool] - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=3m31s857ms665µs300ns).
+[2025-06-25 16:13:30.614] [INFO ] [org.springframework.boot.web.embedded.tomcat.GracefulShutdown] - Commencing graceful shutdown. Waiting for active requests to complete
+[2025-06-25 16:13:30.639] [INFO ] [org.springframework.boot.web.embedded.tomcat.GracefulShutdown] - Graceful shutdown complete
+[2025-06-25 16:21:11.883] [WARN ] [org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[2025-06-25 16:21:13.052] [INFO ] [org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer] - LiveReload server is running on port 35729
+[2025-06-25 16:21:13.079] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8081"]
+[2025-06-25 16:21:13.115] [INFO ] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] - Tomcat started on port 8081 (http) with context path '/'
+[2025-06-25 16:21:13.131] [INFO ] [com.alen.todoapp.SpringWebappRestApplication] - Started SpringWebappRestApplication in 8.132 seconds (process running for 9.221)
+[2025-06-25 16:22:29.861] [INFO ] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2025-06-25 16:22:29.861] [INFO ] [org.springframework.web.servlet.DispatcherServlet] - Initializing Servlet 'dispatcherServlet'
+[2025-06-25 16:22:29.863] [INFO ] [org.springframework.web.servlet.DispatcherServlet] - Completed initialization in 0 ms
+[2025-06-25 16:22:30.319] [WARN ] [org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder] - Encoded password does not look like BCrypt
+[2025-06-25 16:33:23.652] [INFO ] [org.springframework.boot.devtools.autoconfigure.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener] - Restarting due to 4 class path changes (0 additions, 4 deletions, 0 modifications)
+[2025-06-25 16:33:23.657] [INFO ] [org.springframework.boot.web.embedded.tomcat.GracefulShutdown] - Commencing graceful shutdown. Waiting for active requests to complete
+[2025-06-25 16:33:23.659] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Pausing ProtocolHandler ["http-nio-8081"]
+[2025-06-25 16:33:23.680] [INFO ] [org.springframework.boot.web.embedded.tomcat.GracefulShutdown] - Graceful shutdown complete
+[2025-06-25 16:33:23.680] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Stopping ProtocolHandler ["http-nio-8081"]
+[2025-06-25 16:33:25.267] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8081"]
+[2025-06-25 16:33:30.520] [INFO ] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2025-06-25 16:35:22.339] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Pausing ProtocolHandler ["http-nio-8081"]
+[2025-06-25 16:35:22.358] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Stopping ProtocolHandler ["http-nio-8081"]
+[2025-06-25 16:35:23.493] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8081"]
+[2025-06-25 16:35:52.065] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Pausing ProtocolHandler ["http-nio-8081"]
+[2025-06-25 16:35:52.086] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Stopping ProtocolHandler ["http-nio-8081"]
+[2025-06-25 16:35:53.394] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8081"]
+[2025-06-25 16:35:55.807] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Pausing ProtocolHandler ["http-nio-8081"]
+[2025-06-25 16:35:55.829] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Stopping ProtocolHandler ["http-nio-8081"]
+[2025-06-25 16:35:56.991] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8081"]
+[2025-06-25 16:36:01.923] [INFO ] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2025-06-25 16:37:59.157] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Pausing ProtocolHandler ["http-nio-8081"]
+[2025-06-25 16:37:59.177] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Stopping ProtocolHandler ["http-nio-8081"]
+[2025-06-25 16:38:00.355] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8081"]
+[2025-06-25 16:38:02.595] [INFO ] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2025-06-25 16:40:14.111] [WARN ] [org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[2025-06-25 16:40:15.361] [INFO ] [org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer] - LiveReload server is running on port 35729
+[2025-06-25 16:40:15.395] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8081"]
+[2025-06-25 16:40:15.423] [INFO ] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] - Tomcat started on port 8081 (http) with context path '/'
+[2025-06-25 16:40:15.439] [INFO ] [com.alen.todoapp.SpringWebappRestApplication] - Started SpringWebappRestApplication in 8.09 seconds (process running for 9.156)
+[2025-06-25 16:40:22.043] [INFO ] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2025-06-25 16:40:22.043] [INFO ] [org.springframework.web.servlet.DispatcherServlet] - Initializing Servlet 'dispatcherServlet'
+[2025-06-25 16:40:22.044] [INFO ] [org.springframework.web.servlet.DispatcherServlet] - Completed initialization in 1 ms
+[2025-06-25 16:43:07.988] [INFO ] [org.springframework.boot.devtools.autoconfigure.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener] - Restarting due to 3 class path changes (0 additions, 3 deletions, 0 modifications)
+[2025-06-25 16:43:07.993] [INFO ] [org.springframework.boot.web.embedded.tomcat.GracefulShutdown] - Commencing graceful shutdown. Waiting for active requests to complete
+[2025-06-25 16:43:07.995] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Pausing ProtocolHandler ["http-nio-8081"]
+[2025-06-25 16:43:08.015] [INFO ] [org.springframework.boot.web.embedded.tomcat.GracefulShutdown] - Graceful shutdown complete
+[2025-06-25 16:43:08.015] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Stopping ProtocolHandler ["http-nio-8081"]
+[2025-06-25 16:43:09.537] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8081"]
+[2025-06-25 16:43:10.943] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Pausing ProtocolHandler ["http-nio-8081"]
+[2025-06-25 16:43:10.962] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Stopping ProtocolHandler ["http-nio-8081"]
+[2025-06-25 16:43:12.116] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8081"]
+[2025-06-25 16:43:15.760] [INFO ] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2025-06-25 16:44:56.195] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Pausing ProtocolHandler ["http-nio-8081"]
+[2025-06-25 16:44:56.216] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Stopping ProtocolHandler ["http-nio-8081"]
+[2025-06-25 16:44:59.879] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8081"]
+[2025-06-25 16:45:04.464] [INFO ] [org.apache.catalina.core.ContainerBase.[Tomcat-1].[localhost].[/]] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2025-06-25 16:47:02.057] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Pausing ProtocolHandler ["http-nio-8081"]
+[2025-06-25 16:47:02.080] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Stopping ProtocolHandler ["http-nio-8081"]
+[2025-06-25 16:47:03.397] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8081"]
+[2025-06-25 16:47:04.802] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Pausing ProtocolHandler ["http-nio-8081"]
+[2025-06-25 16:47:04.824] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Stopping ProtocolHandler ["http-nio-8081"]
+[2025-06-25 16:47:06.035] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8081"]
+[2025-06-25 16:47:09.833] [INFO ] [org.apache.catalina.core.ContainerBase.[Tomcat-1].[localhost].[/]] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2025-06-25 16:48:12.862] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Pausing ProtocolHandler ["http-nio-8081"]
+[2025-06-25 16:48:12.967] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Stopping ProtocolHandler ["http-nio-8081"]
+[2025-06-25 16:48:14.308] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8081"]
+[2025-06-25 16:48:15.715] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Pausing ProtocolHandler ["http-nio-8081"]
+[2025-06-25 16:48:15.735] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Stopping ProtocolHandler ["http-nio-8081"]
+[2025-06-25 16:48:16.934] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8081"]
+[2025-06-25 16:48:21.590] [INFO ] [org.apache.catalina.core.ContainerBase.[Tomcat-1].[localhost].[/]] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2025-06-25 16:49:46.892] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Pausing ProtocolHandler ["http-nio-8081"]
+[2025-06-25 16:49:46.911] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Stopping ProtocolHandler ["http-nio-8081"]
+[2025-06-25 16:49:47.981] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8081"]
+[2025-06-25 16:49:49.387] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Pausing ProtocolHandler ["http-nio-8081"]
+[2025-06-25 16:49:49.407] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Stopping ProtocolHandler ["http-nio-8081"]
+[2025-06-25 16:49:50.567] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8081"]
+[2025-06-25 16:49:57.230] [INFO ] [org.apache.catalina.core.ContainerBase.[Tomcat-1].[localhost].[/]] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2025-06-25 16:51:41.634] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Pausing ProtocolHandler ["http-nio-8081"]
+[2025-06-25 16:51:41.653] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Stopping ProtocolHandler ["http-nio-8081"]
+[2025-06-25 16:51:42.735] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8081"]
+[2025-06-25 16:51:44.139] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Pausing ProtocolHandler ["http-nio-8081"]
+[2025-06-25 16:51:44.160] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Stopping ProtocolHandler ["http-nio-8081"]
+[2025-06-25 16:51:45.345] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8081"]
+[2025-06-25 16:51:45.532] [INFO ] [org.apache.catalina.core.ContainerBase.[Tomcat-1].[localhost].[/]] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2025-06-25 16:52:36.075] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Pausing ProtocolHandler ["http-nio-8081"]
+[2025-06-25 16:52:36.097] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Stopping ProtocolHandler ["http-nio-8081"]
+[2025-06-25 16:52:37.115] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8081"]
+[2025-06-25 16:52:39.527] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Pausing ProtocolHandler ["http-nio-8081"]
+[2025-06-25 16:52:39.548] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Stopping ProtocolHandler ["http-nio-8081"]
+[2025-06-25 16:52:40.542] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8081"]
+[2025-06-25 16:52:44.189] [INFO ] [org.apache.catalina.core.ContainerBase.[Tomcat-1].[localhost].[/]] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2025-06-25 16:54:40.717] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Pausing ProtocolHandler ["http-nio-8081"]
+[2025-06-25 16:54:40.739] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Stopping ProtocolHandler ["http-nio-8081"]
+[2025-06-25 16:54:41.906] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8081"]
+[2025-06-25 16:54:43.315] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Pausing ProtocolHandler ["http-nio-8081"]
+[2025-06-25 16:54:43.335] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Stopping ProtocolHandler ["http-nio-8081"]
+[2025-06-25 16:54:44.401] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8081"]
+[2025-06-25 16:54:48.661] [INFO ] [org.apache.catalina.core.ContainerBase.[Tomcat-1].[localhost].[/]] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2025-06-25 17:10:07.702] [WARN ] [com.zaxxer.hikari.pool.HikariPool] - HikariPool-17 - Thread starvation or clock leap detected (housekeeper delta=8m53s518ms137µs800ns).
+[2025-06-25 17:12:12.213] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Pausing ProtocolHandler ["http-nio-8081"]
+[2025-06-25 17:12:12.233] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Stopping ProtocolHandler ["http-nio-8081"]
+[2025-06-25 17:12:13.409] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8081"]
+[2025-06-25 17:12:15.826] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Pausing ProtocolHandler ["http-nio-8081"]
+[2025-06-25 17:12:15.846] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Stopping ProtocolHandler ["http-nio-8081"]
+[2025-06-25 17:12:16.773] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8081"]
+[2025-06-25 17:12:19.640] [INFO ] [org.apache.catalina.core.ContainerBase.[Tomcat-1].[localhost].[/]] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2025-06-25 17:13:09.495] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Pausing ProtocolHandler ["http-nio-8081"]
+[2025-06-25 17:13:09.517] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Stopping ProtocolHandler ["http-nio-8081"]
+[2025-06-25 17:13:10.499] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8081"]
+[2025-06-25 17:13:12.911] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Pausing ProtocolHandler ["http-nio-8081"]
+[2025-06-25 17:13:12.931] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Stopping ProtocolHandler ["http-nio-8081"]
+[2025-06-25 17:13:13.891] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8081"]
+[2025-06-25 17:13:19.426] [INFO ] [org.apache.catalina.core.ContainerBase.[Tomcat-1].[localhost].[/]] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2025-06-25 17:14:37.873] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Pausing ProtocolHandler ["http-nio-8081"]
+[2025-06-25 17:14:37.894] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Stopping ProtocolHandler ["http-nio-8081"]
+[2025-06-25 17:14:38.830] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8081"]
+[2025-06-25 17:14:41.242] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Pausing ProtocolHandler ["http-nio-8081"]
+[2025-06-25 17:14:41.262] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Stopping ProtocolHandler ["http-nio-8081"]
+[2025-06-25 17:14:42.178] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8081"]
+[2025-06-25 17:14:44.206] [INFO ] [org.apache.catalina.core.ContainerBase.[Tomcat-1].[localhost].[/]] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2025-06-25 17:15:49.976] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Pausing ProtocolHandler ["http-nio-8081"]
+[2025-06-25 17:15:50.003] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Stopping ProtocolHandler ["http-nio-8081"]
+[2025-06-25 17:15:51.109] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8081"]
+[2025-06-25 17:15:53.521] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Pausing ProtocolHandler ["http-nio-8081"]
+[2025-06-25 17:15:53.542] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Stopping ProtocolHandler ["http-nio-8081"]
+[2025-06-25 17:15:54.431] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8081"]
+[2025-06-25 17:15:57.705] [INFO ] [org.apache.catalina.core.ContainerBase.[Tomcat-1].[localhost].[/]] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2025-06-25 17:17:23.279] [WARN ] [org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[2025-06-25 17:17:24.255] [INFO ] [org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer] - LiveReload server is running on port 35729
+[2025-06-25 17:17:24.284] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8081"]
+[2025-06-25 17:17:24.314] [INFO ] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] - Tomcat started on port 8081 (http) with context path '/'
+[2025-06-25 17:17:24.328] [INFO ] [com.alen.todoapp.SpringWebappRestApplication] - Started SpringWebappRestApplication in 7.747 seconds (process running for 8.858)
+[2025-06-25 17:17:30.662] [INFO ] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2025-06-25 17:17:30.662] [INFO ] [org.springframework.web.servlet.DispatcherServlet] - Initializing Servlet 'dispatcherServlet'
+[2025-06-25 17:17:30.663] [INFO ] [org.springframework.web.servlet.DispatcherServlet] - Completed initialization in 1 ms
+[2025-06-25 17:17:31.105] [WARN ] [org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver] - Resolved [jakarta.servlet.ServletException: Handler dispatch failed: java.lang.NoClassDefFoundError: javax/xml/bind/DatatypeConverter]
+[2025-06-25 17:18:45.237] [INFO ] [org.springframework.boot.devtools.autoconfigure.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener] - Restarting due to 26 class path changes (0 additions, 26 deletions, 0 modifications)
+[2025-06-25 17:18:45.242] [INFO ] [org.springframework.boot.web.embedded.tomcat.GracefulShutdown] - Commencing graceful shutdown. Waiting for active requests to complete
+[2025-06-25 17:18:45.245] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Pausing ProtocolHandler ["http-nio-8081"]
+[2025-06-25 17:18:45.266] [INFO ] [org.springframework.boot.web.embedded.tomcat.GracefulShutdown] - Graceful shutdown complete
+[2025-06-25 17:18:45.266] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Stopping ProtocolHandler ["http-nio-8081"]
+[2025-06-25 17:18:50.477] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8081"]
+[2025-06-25 17:19:05.956] [INFO ] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2025-06-25 17:19:58.302] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Pausing ProtocolHandler ["http-nio-8081"]
+[2025-06-25 17:19:58.322] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Stopping ProtocolHandler ["http-nio-8081"]
+[2025-06-25 17:19:59.532] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8081"]
+[2025-06-25 17:20:00.937] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Pausing ProtocolHandler ["http-nio-8081"]
+[2025-06-25 17:20:00.956] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Stopping ProtocolHandler ["http-nio-8081"]
+[2025-06-25 17:20:02.330] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8081"]
+[2025-06-25 17:20:05.775] [INFO ] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2025-06-25 17:23:06.904] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Pausing ProtocolHandler ["http-nio-8081"]
+[2025-06-25 17:23:06.925] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Stopping ProtocolHandler ["http-nio-8081"]
+[2025-06-25 17:23:08.059] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8081"]
+[2025-06-25 17:23:09.466] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Pausing ProtocolHandler ["http-nio-8081"]
+[2025-06-25 17:23:09.488] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Stopping ProtocolHandler ["http-nio-8081"]
+[2025-06-25 17:23:10.670] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8081"]
+[2025-06-25 17:23:16.327] [INFO ] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2025-06-25 17:25:14.861] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Pausing ProtocolHandler ["http-nio-8081"]
+[2025-06-25 17:25:14.882] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Stopping ProtocolHandler ["http-nio-8081"]
+[2025-06-25 17:25:16.022] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8081"]
+[2025-06-25 17:25:17.431] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Pausing ProtocolHandler ["http-nio-8081"]
+[2025-06-25 17:25:17.451] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Stopping ProtocolHandler ["http-nio-8081"]
+[2025-06-25 17:25:18.593] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8081"]
+[2025-06-25 17:25:22.355] [INFO ] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2025-06-25 17:27:51.865] [WARN ] [org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[2025-06-25 17:27:52.895] [INFO ] [org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer] - LiveReload server is running on port 35729
+[2025-06-25 17:27:52.919] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8081"]
+[2025-06-25 17:27:52.940] [INFO ] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] - Tomcat started on port 8081 (http) with context path '/'
+[2025-06-25 17:27:52.954] [INFO ] [com.alen.todoapp.SpringWebappRestApplication] - Started SpringWebappRestApplication in 7.956 seconds (process running for 9.032)
+[2025-06-25 17:27:57.157] [INFO ] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2025-06-25 17:27:57.157] [INFO ] [org.springframework.web.servlet.DispatcherServlet] - Initializing Servlet 'dispatcherServlet'
+[2025-06-25 17:27:57.157] [INFO ] [org.springframework.web.servlet.DispatcherServlet] - Completed initialization in 0 ms
+[2025-06-25 17:31:56.851] [INFO ] [org.springframework.boot.devtools.autoconfigure.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener] - Restarting due to 3 class path changes (0 additions, 3 deletions, 0 modifications)
+[2025-06-25 17:31:56.856] [INFO ] [org.springframework.boot.web.embedded.tomcat.GracefulShutdown] - Commencing graceful shutdown. Waiting for active requests to complete
+[2025-06-25 17:31:56.859] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Pausing ProtocolHandler ["http-nio-8081"]
+[2025-06-25 17:31:56.880] [INFO ] [org.springframework.boot.web.embedded.tomcat.GracefulShutdown] - Graceful shutdown complete
+[2025-06-25 17:31:56.881] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Stopping ProtocolHandler ["http-nio-8081"]
+[2025-06-25 17:31:58.563] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8081"]
+[2025-06-25 17:31:59.139] [INFO ] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2025-06-25 17:32:00.377] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Pausing ProtocolHandler ["http-nio-8081"]
+[2025-06-25 17:32:00.398] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Stopping ProtocolHandler ["http-nio-8081"]
+[2025-06-25 17:32:01.882] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8081"]
+[2025-06-25 17:32:55.910] [INFO ] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2025-06-25 17:32:57.636] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Pausing ProtocolHandler ["http-nio-8081"]
+[2025-06-25 17:32:57.658] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Stopping ProtocolHandler ["http-nio-8081"]
+[2025-06-25 17:32:58.871] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8081"]
+[2025-06-25 17:32:59.196] [INFO ] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2025-06-25 17:33:00.277] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Pausing ProtocolHandler ["http-nio-8081"]
+[2025-06-25 17:33:00.300] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Stopping ProtocolHandler ["http-nio-8081"]
+[2025-06-25 17:33:01.583] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8081"]
+[2025-06-25 17:33:04.546] [INFO ] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2025-06-25 17:34:20.458] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Pausing ProtocolHandler ["http-nio-8081"]
+[2025-06-25 17:34:20.480] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Stopping ProtocolHandler ["http-nio-8081"]
+[2025-06-25 17:34:21.742] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8081"]
+[2025-06-25 17:34:24.154] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Pausing ProtocolHandler ["http-nio-8081"]
+[2025-06-25 17:34:24.175] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Stopping ProtocolHandler ["http-nio-8081"]
+[2025-06-25 17:34:25.278] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8081"]
+[2025-06-25 17:34:26.879] [INFO ] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2025-06-26 10:15:44.956] [WARN ] [org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[2025-06-26 10:15:45.403] [INFO ] [org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer] - Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+[2025-06-26 10:15:45.963] [INFO ] [org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer] - LiveReload server is running on port 35729
+[2025-06-26 10:15:45.980] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8081"]
+[2025-06-26 10:15:45.996] [INFO ] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] - Tomcat started on port 8081 (http) with context path '/'
+[2025-06-26 10:15:46.004] [INFO ] [com.alen.todoapp.SpringWebappRestApplication] - Started SpringWebappRestApplication in 6.327 seconds (process running for 7.292)
+[2025-06-26 10:16:36.468] [INFO ] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2025-06-26 10:16:36.470] [INFO ] [org.springframework.web.servlet.DispatcherServlet] - Initializing Servlet 'dispatcherServlet'
+[2025-06-26 10:16:36.471] [INFO ] [org.springframework.web.servlet.DispatcherServlet] - Completed initialization in 1 ms
+[2025-06-26 10:19:57.901] [INFO ] [org.springframework.boot.devtools.autoconfigure.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener] - Restarting due to 2 class path changes (0 additions, 2 deletions, 0 modifications)
+[2025-06-26 10:19:57.907] [INFO ] [org.springframework.boot.web.embedded.tomcat.GracefulShutdown] - Commencing graceful shutdown. Waiting for active requests to complete
+[2025-06-26 10:19:57.910] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Pausing ProtocolHandler ["http-nio-8081"]
+[2025-06-26 10:19:57.931] [INFO ] [org.springframework.boot.web.embedded.tomcat.GracefulShutdown] - Graceful shutdown complete
+[2025-06-26 10:19:57.931] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Stopping ProtocolHandler ["http-nio-8081"]
+[2025-06-26 10:19:59.537] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8081"]
+[2025-06-26 10:20:00.941] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Pausing ProtocolHandler ["http-nio-8081"]
+[2025-06-26 10:20:00.963] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Stopping ProtocolHandler ["http-nio-8081"]
+[2025-06-26 10:20:02.193] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8081"]
+[2025-06-26 10:20:09.721] [INFO ] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2025-06-26 10:20:10.651] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Pausing ProtocolHandler ["http-nio-8081"]
+[2025-06-26 10:20:10.670] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Stopping ProtocolHandler ["http-nio-8081"]
+[2025-06-26 10:20:11.882] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8081"]
+[2025-06-26 10:20:13.290] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Pausing ProtocolHandler ["http-nio-8081"]
+[2025-06-26 10:20:13.310] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Stopping ProtocolHandler ["http-nio-8081"]
+[2025-06-26 10:20:14.516] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8081"]
+[2025-06-26 10:20:24.981] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Pausing ProtocolHandler ["http-nio-8081"]
+[2025-06-26 10:20:25.004] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Stopping ProtocolHandler ["http-nio-8081"]
+[2025-06-26 10:20:26.249] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8081"]
+[2025-06-26 10:20:27.713] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Pausing ProtocolHandler ["http-nio-8081"]
+[2025-06-26 10:20:27.751] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Stopping ProtocolHandler ["http-nio-8081"]
+[2025-06-26 10:20:29.010] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8081"]
+[2025-06-26 10:20:33.501] [INFO ] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2025-06-26 10:20:53.557] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Pausing ProtocolHandler ["http-nio-8081"]
+[2025-06-26 10:20:53.577] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Stopping ProtocolHandler ["http-nio-8081"]
+[2025-06-26 10:20:54.655] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8081"]
+[2025-06-26 10:20:56.069] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Pausing ProtocolHandler ["http-nio-8081"]
+[2025-06-26 10:20:56.089] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Stopping ProtocolHandler ["http-nio-8081"]
+[2025-06-26 10:20:57.256] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8081"]
+[2025-06-26 10:21:46.211] [INFO ] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2025-06-26 10:21:48.968] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Pausing ProtocolHandler ["http-nio-8081"]
+[2025-06-26 10:21:48.988] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Stopping ProtocolHandler ["http-nio-8081"]
+[2025-06-26 10:21:50.026] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8081"]
+[2025-06-26 10:21:51.433] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Pausing ProtocolHandler ["http-nio-8081"]
+[2025-06-26 10:21:51.455] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Stopping ProtocolHandler ["http-nio-8081"]
+[2025-06-26 10:21:52.496] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8081"]
+[2025-06-26 10:21:56.106] [INFO ] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2025-06-26 10:22:19.062] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Pausing ProtocolHandler ["http-nio-8081"]
+[2025-06-26 10:22:19.081] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Stopping ProtocolHandler ["http-nio-8081"]
+[2025-06-26 10:22:20.031] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8081"]
+[2025-06-26 10:22:21.497] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Pausing ProtocolHandler ["http-nio-8081"]
+[2025-06-26 10:22:21.517] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Stopping ProtocolHandler ["http-nio-8081"]
+[2025-06-26 10:22:22.527] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8081"]
+[2025-06-26 10:23:01.136] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Pausing ProtocolHandler ["http-nio-8081"]
+[2025-06-26 10:23:01.156] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Stopping ProtocolHandler ["http-nio-8081"]
+[2025-06-26 10:23:04.241] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8081"]
+[2025-06-26 10:23:09.234] [INFO ] [org.apache.catalina.core.ContainerBase.[Tomcat-1].[localhost].[/]] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2025-06-26 10:25:23.470] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Pausing ProtocolHandler ["http-nio-8081"]
+[2025-06-26 10:25:23.490] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Stopping ProtocolHandler ["http-nio-8081"]
+[2025-06-26 10:25:24.560] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8081"]
+[2025-06-26 10:25:26.369] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Pausing ProtocolHandler ["http-nio-8081"]
+[2025-06-26 10:25:26.388] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Stopping ProtocolHandler ["http-nio-8081"]
+[2025-06-26 10:25:27.443] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8081"]
+[2025-06-26 10:25:30.797] [INFO ] [org.apache.catalina.core.ContainerBase.[Tomcat-1].[localhost].[/]] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2025-06-26 10:25:30.920] [ERROR] [com.alen.todoapp.exception.GlobalExceptionHandler] - Unhandled exception: 
+com.alen.todoapp.exception.AuthException: Username already exists
+	at com.alen.todoapp.service.AuthServiceImp.addUser(AuthServiceImp.java:27) ~[classes/:?]
+	at com.alen.todoapp.controller.AuthController.registerUser(AuthController.java:114) ~[classes/:?]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[?:?]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565) ~[?:?]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:258) ~[spring-web-6.2.7.jar:6.2.7]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:191) ~[spring-web-6.2.7.jar:6.2.7]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.2.7.jar:6.2.7]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:986) ~[spring-webmvc-6.2.7.jar:6.2.7]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:891) ~[spring-webmvc-6.2.7.jar:6.2.7]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.2.7.jar:6.2.7]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) [spring-webmvc-6.2.7.jar:6.2.7]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) [spring-webmvc-6.2.7.jar:6.2.7]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) [spring-webmvc-6.2.7.jar:6.2.7]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914) [spring-webmvc-6.2.7.jar:6.2.7]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590) [tomcat-embed-core-10.1.41.jar:6.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) [spring-webmvc-6.2.7.jar:6.2.7]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) [tomcat-embed-core-10.1.41.jar:6.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195) [tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) [tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) [tomcat-embed-websocket-10.1.41.jar:10.1.41]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) [tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) [tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110) [spring-web-6.2.7.jar:6.2.7]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) [tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) [tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108) [spring-web-6.2.7.jar:6.2.7]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108) [spring-web-6.2.7.jar:6.2.7]
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231) [spring-security-web-6.5.0.jar:6.5.0]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365) [spring-security-web-6.5.0.jar:6.5.0]
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:101) [spring-security-web-6.5.0.jar:6.5.0]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) [spring-security-web-6.5.0.jar:6.5.0]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:125) [spring-security-web-6.5.0.jar:6.5.0]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:119) [spring-security-web-6.5.0.jar:6.5.0]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) [spring-security-web-6.5.0.jar:6.5.0]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:131) [spring-security-web-6.5.0.jar:6.5.0]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:85) [spring-security-web-6.5.0.jar:6.5.0]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) [spring-security-web-6.5.0.jar:6.5.0]
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100) [spring-security-web-6.5.0.jar:6.5.0]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) [spring-security-web-6.5.0.jar:6.5.0]
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179) [spring-security-web-6.5.0.jar:6.5.0]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) [spring-security-web-6.5.0.jar:6.5.0]
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) [spring-security-web-6.5.0.jar:6.5.0]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) [spring-security-web-6.5.0.jar:6.5.0]
+	at com.alen.todoapp.security.JwtAuthenticationFilter.doFilterInternal(JwtAuthenticationFilter.java:46) [classes/:?]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) [spring-web-6.2.7.jar:6.2.7]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) [spring-security-web-6.5.0.jar:6.5.0]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107) [spring-security-web-6.5.0.jar:6.5.0]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93) [spring-security-web-6.5.0.jar:6.5.0]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) [spring-security-web-6.5.0.jar:6.5.0]
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) [spring-security-web-6.5.0.jar:6.5.0]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) [spring-security-web-6.5.0.jar:6.5.0]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) [spring-web-6.2.7.jar:6.2.7]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) [spring-security-web-6.5.0.jar:6.5.0]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82) [spring-security-web-6.5.0.jar:6.5.0]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69) [spring-security-web-6.5.0.jar:6.5.0]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) [spring-security-web-6.5.0.jar:6.5.0]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62) [spring-security-web-6.5.0.jar:6.5.0]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) [spring-web-6.2.7.jar:6.2.7]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) [spring-security-web-6.5.0.jar:6.5.0]
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42) [spring-security-web-6.5.0.jar:6.5.0]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) [spring-web-6.2.7.jar:6.2.7]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) [spring-security-web-6.5.0.jar:6.5.0]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233) [spring-security-web-6.5.0.jar:6.5.0]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191) [spring-security-web-6.5.0.jar:6.5.0]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) [spring-web-6.2.7.jar:6.2.7]
+	at org.springframework.web.filter.ServletRequestPathFilter.doFilter(ServletRequestPathFilter.java:52) [spring-web-6.2.7.jar:6.2.7]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) [spring-web-6.2.7.jar:6.2.7]
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74) [spring-web-6.2.7.jar:6.2.7]
+	at org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebSecurityConfiguration.java:319) [spring-security-config-6.5.0.jar:6.5.0]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) [spring-web-6.2.7.jar:6.2.7]
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$3(HandlerMappingIntrospector.java:243) [spring-webmvc-6.2.7.jar:6.2.7]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) [spring-web-6.2.7.jar:6.2.7]
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74) [spring-web-6.2.7.jar:6.2.7]
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:240) [spring-security-config-6.5.0.jar:6.5.0]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:362) [spring-web-6.2.7.jar:6.2.7]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:278) [spring-web-6.2.7.jar:6.2.7]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) [tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) [tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) [spring-web-6.2.7.jar:6.2.7]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) [spring-web-6.2.7.jar:6.2.7]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) [tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) [tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) [spring-web-6.2.7.jar:6.2.7]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) [spring-web-6.2.7.jar:6.2.7]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) [tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) [tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) [spring-web-6.2.7.jar:6.2.7]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) [spring-web-6.2.7.jar:6.2.7]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) [tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) [tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) [tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) [tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483) [tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:116) [tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) [tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) [tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344) [tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:398) [tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) [tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903) [tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1740) [tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) [tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189) [tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658) [tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) [tomcat-embed-core-10.1.41.jar:10.1.41]
+	at java.base/java.lang.Thread.run(Thread.java:1447) [?:?]
+[2025-06-26 10:29:44.371] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Pausing ProtocolHandler ["http-nio-8081"]
+[2025-06-26 10:29:44.393] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Stopping ProtocolHandler ["http-nio-8081"]
+[2025-06-26 10:29:45.487] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8081"]
+[2025-06-26 10:29:46.891] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Pausing ProtocolHandler ["http-nio-8081"]
+[2025-06-26 10:29:46.911] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Stopping ProtocolHandler ["http-nio-8081"]
+[2025-06-26 10:29:47.971] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8081"]
+[2025-06-26 10:29:50.536] [INFO ] [org.apache.catalina.core.ContainerBase.[Tomcat-1].[localhost].[/]] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2025-06-26 10:30:00.264] [ERROR] [com.alen.todoapp.exception.GlobalExceptionHandler] - Unhandled exception: 
+com.alen.todoapp.exception.AuthException: Invalid username/email or password
+	at com.alen.todoapp.controller.AuthController.login(AuthController.java:59) ~[classes/:?]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[?:?]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565) ~[?:?]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:258) ~[spring-web-6.2.7.jar:6.2.7]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:191) ~[spring-web-6.2.7.jar:6.2.7]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.2.7.jar:6.2.7]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:986) ~[spring-webmvc-6.2.7.jar:6.2.7]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:891) ~[spring-webmvc-6.2.7.jar:6.2.7]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.2.7.jar:6.2.7]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) [spring-webmvc-6.2.7.jar:6.2.7]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) [spring-webmvc-6.2.7.jar:6.2.7]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) [spring-webmvc-6.2.7.jar:6.2.7]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914) [spring-webmvc-6.2.7.jar:6.2.7]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590) [tomcat-embed-core-10.1.41.jar:6.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) [spring-webmvc-6.2.7.jar:6.2.7]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) [tomcat-embed-core-10.1.41.jar:6.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195) [tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) [tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) [tomcat-embed-websocket-10.1.41.jar:10.1.41]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) [tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) [tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110) [spring-web-6.2.7.jar:6.2.7]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) [tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) [tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108) [spring-web-6.2.7.jar:6.2.7]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108) [spring-web-6.2.7.jar:6.2.7]
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231) [spring-security-web-6.5.0.jar:6.5.0]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365) [spring-security-web-6.5.0.jar:6.5.0]
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:101) [spring-security-web-6.5.0.jar:6.5.0]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) [spring-security-web-6.5.0.jar:6.5.0]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:125) [spring-security-web-6.5.0.jar:6.5.0]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:119) [spring-security-web-6.5.0.jar:6.5.0]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) [spring-security-web-6.5.0.jar:6.5.0]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:131) [spring-security-web-6.5.0.jar:6.5.0]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:85) [spring-security-web-6.5.0.jar:6.5.0]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) [spring-security-web-6.5.0.jar:6.5.0]
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100) [spring-security-web-6.5.0.jar:6.5.0]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) [spring-security-web-6.5.0.jar:6.5.0]
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179) [spring-security-web-6.5.0.jar:6.5.0]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) [spring-security-web-6.5.0.jar:6.5.0]
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) [spring-security-web-6.5.0.jar:6.5.0]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) [spring-security-web-6.5.0.jar:6.5.0]
+	at com.alen.todoapp.security.JwtAuthenticationFilter.doFilterInternal(JwtAuthenticationFilter.java:46) [classes/:?]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) [spring-web-6.2.7.jar:6.2.7]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) [spring-security-web-6.5.0.jar:6.5.0]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107) [spring-security-web-6.5.0.jar:6.5.0]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93) [spring-security-web-6.5.0.jar:6.5.0]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) [spring-security-web-6.5.0.jar:6.5.0]
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) [spring-security-web-6.5.0.jar:6.5.0]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) [spring-security-web-6.5.0.jar:6.5.0]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) [spring-web-6.2.7.jar:6.2.7]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) [spring-security-web-6.5.0.jar:6.5.0]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82) [spring-security-web-6.5.0.jar:6.5.0]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69) [spring-security-web-6.5.0.jar:6.5.0]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) [spring-security-web-6.5.0.jar:6.5.0]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62) [spring-security-web-6.5.0.jar:6.5.0]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) [spring-web-6.2.7.jar:6.2.7]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) [spring-security-web-6.5.0.jar:6.5.0]
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42) [spring-security-web-6.5.0.jar:6.5.0]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) [spring-web-6.2.7.jar:6.2.7]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) [spring-security-web-6.5.0.jar:6.5.0]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233) [spring-security-web-6.5.0.jar:6.5.0]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191) [spring-security-web-6.5.0.jar:6.5.0]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) [spring-web-6.2.7.jar:6.2.7]
+	at org.springframework.web.filter.ServletRequestPathFilter.doFilter(ServletRequestPathFilter.java:52) [spring-web-6.2.7.jar:6.2.7]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) [spring-web-6.2.7.jar:6.2.7]
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74) [spring-web-6.2.7.jar:6.2.7]
+	at org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebSecurityConfiguration.java:319) [spring-security-config-6.5.0.jar:6.5.0]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) [spring-web-6.2.7.jar:6.2.7]
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$3(HandlerMappingIntrospector.java:243) [spring-webmvc-6.2.7.jar:6.2.7]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) [spring-web-6.2.7.jar:6.2.7]
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74) [spring-web-6.2.7.jar:6.2.7]
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:240) [spring-security-config-6.5.0.jar:6.5.0]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:362) [spring-web-6.2.7.jar:6.2.7]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:278) [spring-web-6.2.7.jar:6.2.7]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) [tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) [tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) [spring-web-6.2.7.jar:6.2.7]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) [spring-web-6.2.7.jar:6.2.7]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) [tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) [tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) [spring-web-6.2.7.jar:6.2.7]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) [spring-web-6.2.7.jar:6.2.7]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) [tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) [tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) [spring-web-6.2.7.jar:6.2.7]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) [spring-web-6.2.7.jar:6.2.7]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) [tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) [tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) [tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) [tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483) [tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:116) [tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) [tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) [tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344) [tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:398) [tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) [tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903) [tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1740) [tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) [tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189) [tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658) [tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) [tomcat-embed-core-10.1.41.jar:10.1.41]
+	at java.base/java.lang.Thread.run(Thread.java:1447) [?:?]
+[2025-06-26 10:36:04.258] [ERROR] [com.alen.todoapp.exception.GlobalExceptionHandler] - Unhandled exception: 
+com.alen.todoapp.exception.AuthException: Email already exists
+	at com.alen.todoapp.service.AuthServiceImp.addUser(AuthServiceImp.java:30) ~[classes/:?]
+	at com.alen.todoapp.controller.AuthController.registerUser(AuthController.java:90) ~[classes/:?]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[?:?]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565) ~[?:?]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:258) ~[spring-web-6.2.7.jar:6.2.7]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:191) ~[spring-web-6.2.7.jar:6.2.7]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.2.7.jar:6.2.7]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:986) ~[spring-webmvc-6.2.7.jar:6.2.7]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:891) ~[spring-webmvc-6.2.7.jar:6.2.7]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.2.7.jar:6.2.7]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) [spring-webmvc-6.2.7.jar:6.2.7]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) [spring-webmvc-6.2.7.jar:6.2.7]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) [spring-webmvc-6.2.7.jar:6.2.7]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914) [spring-webmvc-6.2.7.jar:6.2.7]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590) [tomcat-embed-core-10.1.41.jar:6.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) [spring-webmvc-6.2.7.jar:6.2.7]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) [tomcat-embed-core-10.1.41.jar:6.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195) [tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) [tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) [tomcat-embed-websocket-10.1.41.jar:10.1.41]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) [tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) [tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110) [spring-web-6.2.7.jar:6.2.7]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) [tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) [tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108) [spring-web-6.2.7.jar:6.2.7]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108) [spring-web-6.2.7.jar:6.2.7]
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231) [spring-security-web-6.5.0.jar:6.5.0]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365) [spring-security-web-6.5.0.jar:6.5.0]
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:101) [spring-security-web-6.5.0.jar:6.5.0]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) [spring-security-web-6.5.0.jar:6.5.0]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:125) [spring-security-web-6.5.0.jar:6.5.0]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:119) [spring-security-web-6.5.0.jar:6.5.0]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) [spring-security-web-6.5.0.jar:6.5.0]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:131) [spring-security-web-6.5.0.jar:6.5.0]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:85) [spring-security-web-6.5.0.jar:6.5.0]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) [spring-security-web-6.5.0.jar:6.5.0]
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100) [spring-security-web-6.5.0.jar:6.5.0]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) [spring-security-web-6.5.0.jar:6.5.0]
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179) [spring-security-web-6.5.0.jar:6.5.0]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) [spring-security-web-6.5.0.jar:6.5.0]
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) [spring-security-web-6.5.0.jar:6.5.0]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) [spring-security-web-6.5.0.jar:6.5.0]
+	at com.alen.todoapp.security.JwtAuthenticationFilter.doFilterInternal(JwtAuthenticationFilter.java:46) [classes/:?]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) [spring-web-6.2.7.jar:6.2.7]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) [spring-security-web-6.5.0.jar:6.5.0]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107) [spring-security-web-6.5.0.jar:6.5.0]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93) [spring-security-web-6.5.0.jar:6.5.0]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) [spring-security-web-6.5.0.jar:6.5.0]
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) [spring-security-web-6.5.0.jar:6.5.0]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) [spring-security-web-6.5.0.jar:6.5.0]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) [spring-web-6.2.7.jar:6.2.7]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) [spring-security-web-6.5.0.jar:6.5.0]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82) [spring-security-web-6.5.0.jar:6.5.0]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69) [spring-security-web-6.5.0.jar:6.5.0]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) [spring-security-web-6.5.0.jar:6.5.0]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62) [spring-security-web-6.5.0.jar:6.5.0]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) [spring-web-6.2.7.jar:6.2.7]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) [spring-security-web-6.5.0.jar:6.5.0]
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42) [spring-security-web-6.5.0.jar:6.5.0]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) [spring-web-6.2.7.jar:6.2.7]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) [spring-security-web-6.5.0.jar:6.5.0]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233) [spring-security-web-6.5.0.jar:6.5.0]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191) [spring-security-web-6.5.0.jar:6.5.0]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) [spring-web-6.2.7.jar:6.2.7]
+	at org.springframework.web.filter.ServletRequestPathFilter.doFilter(ServletRequestPathFilter.java:52) [spring-web-6.2.7.jar:6.2.7]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) [spring-web-6.2.7.jar:6.2.7]
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74) [spring-web-6.2.7.jar:6.2.7]
+	at org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebSecurityConfiguration.java:319) [spring-security-config-6.5.0.jar:6.5.0]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) [spring-web-6.2.7.jar:6.2.7]
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$3(HandlerMappingIntrospector.java:243) [spring-webmvc-6.2.7.jar:6.2.7]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) [spring-web-6.2.7.jar:6.2.7]
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74) [spring-web-6.2.7.jar:6.2.7]
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:240) [spring-security-config-6.5.0.jar:6.5.0]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:362) [spring-web-6.2.7.jar:6.2.7]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:278) [spring-web-6.2.7.jar:6.2.7]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) [tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) [tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) [spring-web-6.2.7.jar:6.2.7]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) [spring-web-6.2.7.jar:6.2.7]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) [tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) [tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) [spring-web-6.2.7.jar:6.2.7]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) [spring-web-6.2.7.jar:6.2.7]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) [tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) [tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) [spring-web-6.2.7.jar:6.2.7]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) [spring-web-6.2.7.jar:6.2.7]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) [tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) [tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) [tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) [tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483) [tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:116) [tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) [tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) [tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344) [tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:398) [tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) [tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903) [tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1740) [tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) [tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189) [tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658) [tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) [tomcat-embed-core-10.1.41.jar:10.1.41]
+	at java.base/java.lang.Thread.run(Thread.java:1447) [?:?]
+[2025-06-26 10:41:04.798] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Pausing ProtocolHandler ["http-nio-8081"]
+[2025-06-26 10:41:04.817] [INFO ] [org.apache.coyote.http11.Http11NioProtocol] - Stopping ProtocolHandler ["http-nio-8081"]

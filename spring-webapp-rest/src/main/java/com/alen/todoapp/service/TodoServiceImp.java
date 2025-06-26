@@ -6,21 +6,23 @@ import com.alen.todoapp.model.Status;
 import com.alen.todoapp.model.Todo;
 import com.alen.todoapp.repo.TodoRepo;
 import com.alen.todoapp.utils.mapper.TodoMapper;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+
 @Service
 public class TodoServiceImp implements TodoService {
-    private static final Logger logger = LoggerFactory.getLogger(TodoServiceImp.class);
+    private static final Logger logger = LogManager.getLogger(TodoServiceImp.class);
     private final TodoRepo repo;
     private final TodoMapper mapper;
 
+    @Autowired
     public TodoServiceImp(TodoRepo repo, TodoMapper mapper) {
         this.repo = repo;
         this.mapper = mapper;
@@ -60,7 +62,7 @@ public class TodoServiceImp implements TodoService {
         }
         Todo todo = mapper.toTodo(todoDto, true);
         Todo saved = repo.save(todo);
-        logger.info("Added new Todo: {}", saved);
+        logger.info("Added new Todo: " + saved);
         return mapper.toTodoDto(saved);
     }
 
@@ -75,7 +77,7 @@ public class TodoServiceImp implements TodoService {
         Todo todo = mapper.toTodo(todoDto);
         todo.setTId(id);
         Todo updated = repo.save(todo);
-        logger.info("Updated Todo with id {}: {}", id, updated);
+        logger.info("Updated Todo with id " + id + ": " + updated);
         return mapper.toTodoDto(updated);
     }
 
@@ -88,7 +90,7 @@ public class TodoServiceImp implements TodoService {
             throw new AppException("Todo with id " + id + " not found", HttpStatus.NOT_FOUND);
         }
         repo.deleteById(id);
-        logger.info("Deleted Todo with id {}", id);
+        logger.info("Deleted Todo with id " + id);
         return true;
     }
 
@@ -100,7 +102,7 @@ public class TodoServiceImp implements TodoService {
         todos.add(createTodoWithDefaults("Test Application", "Write unit tests for the application", Status.IN_PROGRESS, new Date(125, 7, 25)));
         todos.add(createTodoWithDefaults("Deploy App", "Deploy the application to production", Status.IN_PROGRESS, new Date(125, 8, 5)));
         repo.saveAll(todos);
-        logger.info("Loaded default Todos: {}", todos.size());
+        logger.info("Loaded default Todos: " + todos.size());
     }
 
     private Todo createTodoWithDefaults(String topic, String description, Status status, Date dueDate) {

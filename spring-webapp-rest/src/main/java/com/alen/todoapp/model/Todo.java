@@ -32,6 +32,10 @@ public class Todo {
     @UpdateTimestamp
     private Timestamp updatedAt;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id", nullable = false)
+    private Users user;
+
     public Status getStatus() {
         return status;
     }
@@ -102,6 +106,14 @@ public class Todo {
 
     public void setTId(int TId) {
         this.TId = TId;
+    }
+
+    public Users getUser() {
+        return user;
+    }
+
+    public void setUser(Users user) {
+        this.user = user;
     }
 
     public Todo() {}
