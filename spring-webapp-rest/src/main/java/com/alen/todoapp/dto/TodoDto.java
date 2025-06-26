@@ -42,6 +42,8 @@ public class TodoDto {
 
     private Timestamp updatedAt;
 
+    private Long userId;
+
     public int getTId() {
         return TId;
     }
@@ -107,5 +109,13 @@ public class TodoDto {
 
     public void setUpdatedAt(Timestamp updatedAt) {
         this.updatedAt = updatedAt;
+    }
+
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 }
