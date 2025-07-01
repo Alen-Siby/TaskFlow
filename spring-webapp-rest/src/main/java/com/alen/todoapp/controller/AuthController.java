@@ -57,7 +57,7 @@ public class AuthController {
             authService.getUserByEmail(email) : authService.getUserByUsername(username);
         if (user == null || !passwordEncoder.matches(password, user.getPassword()))
             throw new AuthException("Invalid username/email or password");
-        String token = jwtUtil.generateToken(user.getUsername());
+        String token = jwtUtil.generateToken(user.getUsername(), user.getId());
         return ResponseEntity.ok(Map.of(
             "success", true,
             "token", token,

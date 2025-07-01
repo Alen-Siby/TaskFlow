@@ -18,28 +18,32 @@ public class GlobalExceptionHandler {
     private static final Logger logger = LoggerFactory.getLogger(GlobalExceptionHandler.class);
 
     @ExceptionHandler(AppException.class)
-    public ResponseEntity<Map<String, String>> handleAppException(AppException ex) {
-        Map<String, String> error = new HashMap<>();
-        error.put("error", ex.getMessage());
+    public ResponseEntity<Map<String, Object>> handleAppException(AppException ex) {
+        Map<String, Object> error = new HashMap<>();
+        error.put("success", false);
+        error.put("message", ex.getMessage());
         return new ResponseEntity<>(error, ex.getStatus());
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
-    public ResponseEntity<Map<String, String>> handleValidationExceptions(MethodArgumentNotValidException ex) {
-        Map<String, String> errors = new HashMap<>();
-        ex.getBindingResult().getFieldErrors().forEach(error ->
-            errors.put(error.getField(), error.getDefaultMessage())
+    public ResponseEntity<Map<String, Object>> handleValidationExceptions(MethodArgumentNotValidException ex) {
+        Map<String, Object> error = new HashMap<>();
+        error.put("success", false);
+        StringBuilder errorMsg = new StringBuilder();
+        ex.getBindingResult().getFieldErrors().forEach(fieldError ->
+            errorMsg.append(fieldError.getField()).append(": ").append(fieldError.getDefaultMessage()).append("; ")
         );
-        return new ResponseEntity<>(errors, HttpStatus.BAD_REQUEST);
+        error.put("message", errorMsg.toString().trim());
+        return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler(Exception.class)
-    public ResponseEntity<Map<String, String>> handleOtherExceptions(Exception ex) {
+    public ResponseEntity<Map<String, Object>> handleOtherExceptions(Exception ex) {
         logger.error("Unhandled exception: ", ex);
-        Map<String, String> error = new HashMap<>();
-        // In production, keep the message generic. In dev, show the real message for debugging.
+        Map<String, Object> error = new HashMap<>();
+        error.put("success", false);
         String message = ex.getMessage() != null ? ex.getMessage() : "Internal server error";
-        error.put("error", message);
+        error.put("message", message);
         return new ResponseEntity<>(error, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 }

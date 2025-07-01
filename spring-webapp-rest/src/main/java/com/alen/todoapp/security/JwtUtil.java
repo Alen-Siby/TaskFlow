@@ -6,6 +6,7 @@ import io.jsonwebtoken.Claims;
 import org.springframework.stereotype.Component;
 
 import java.util.Date;
+import java.util.Map;
 
 @Component
 public class JwtUtil {
@@ -21,8 +22,30 @@ public class JwtUtil {
                 .compact();
     }
 
+    public String generateToken(String username, Long userId) {
+        return Jwts.builder()
+                .setSubject(username)
+                .claim("userId", userId)
+                .setIssuedAt(new Date())
+                .setExpiration(new Date(System.currentTimeMillis() + EXPIRATION_TIME))
+                .signWith(SignatureAlgorithm.HS256, SECRET_KEY)
+                .compact();
+    }
+
     public String extractUsername(String token) {
         return extractAllClaims(token).getSubject();
+    }
+
+    public Long extractUserId(String token) {
+        Object userId = extractAllClaims(token).get("userId");
+        if (userId instanceof Integer) {
+            return ((Integer) userId).longValue();
+        } else if (userId instanceof Long) {
+            return (Long) userId;
+        } else if (userId != null) {
+            return Long.parseLong(userId.toString());
+        }
+        return null;
     }
 
     public boolean isTokenValid(String token, String username) {
@@ -38,4 +61,3 @@ public class JwtUtil {
         return Jwts.parser().setSigningKey(SECRET_KEY).parseClaimsJws(token).getBody();
     }
 }
-

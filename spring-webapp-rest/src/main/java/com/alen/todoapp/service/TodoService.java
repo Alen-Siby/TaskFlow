@@ -15,6 +15,9 @@ public interface TodoService {
     // Add a new todo
     TodoDto addTodo(TodoDto todoDto);
 
+    // Add a new todo for a user
+    TodoDto addTodo(TodoDto todoDto, Long userId);
+
     // Update a todo by ID
     TodoDto updateTodo(int id, TodoDto todoDto);
 
@@ -23,4 +26,7 @@ public interface TodoService {
 
     // Load sample todos
     void load();
+
+    // Fetch todos by user ID
+    List<TodoDto> getTodosByUserId(Long userId);
 }

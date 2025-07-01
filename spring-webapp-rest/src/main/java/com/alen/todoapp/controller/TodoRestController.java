@@ -4,12 +4,17 @@ import com.alen.todoapp.dto.TodoDto;
 import com.alen.todoapp.model.Todo;
 import com.alen.todoapp.service.TodoService;
 import com.alen.todoapp.utils.mapper.TodoMapper;
+import com.alen.todoapp.security.JwtUtil;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import jakarta.validation.Valid;
+
+import jakarta.servlet.http.HttpServletRequest;
+import java.util.Map;
 
 @RequestMapping("/todo")
 @RestController
@@ -18,17 +23,31 @@ public class TodoRestController {
 
     private final TodoService service;
     private final TodoMapper mapper;
+    private final JwtUtil jwtUtil;
 
-
-
-    public TodoRestController(TodoService service, TodoMapper mapper) {
+    @Autowired
+    public TodoRestController(TodoService service, TodoMapper mapper, JwtUtil jwtUtil) {
         this.service = service;
         this.mapper = mapper;
+        this.jwtUtil = jwtUtil;
     }
 
     @GetMapping()
-    public ResponseEntity<?> getAllTodos() {
-        return ResponseEntity.ok(service.getAllTodos());
+    public ResponseEntity<?> getAllTodos(HttpServletRequest request) {
+        String authHeader = request.getHeader("Authorization");
+        if (authHeader == null || !authHeader.startsWith("Bearer ")) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                .body(Map.of("success", false, "message", "Missing or invalid Authorization header"));
+        }
+        String token = authHeader.substring(7);
+        Long userId;
+        try {
+            userId = jwtUtil.extractUserId(token);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                .body(Map.of("success", false, "message", "Invalid JWT token"));
+        }
+        return ResponseEntity.ok(service.getTodosByUserId(userId));
     }
 
     @GetMapping("/{id}")
@@ -38,12 +57,25 @@ public class TodoRestController {
     }
 
     @PostMapping()
-    public ResponseEntity<?> addTodo(@RequestBody @Valid TodoDto todoDto) {
+    public ResponseEntity<?> addTodo(@RequestBody @Valid TodoDto todoDto, HttpServletRequest request) {
+        String authHeader = request.getHeader("Authorization");
+        if (authHeader == null || !authHeader.startsWith("Bearer ")) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                .body(Map.of("success", false, "message", "Missing or invalid Authorization header"));
+        }
+        String token = authHeader.substring(7);
+        Long userId;
+        try {
+            userId = jwtUtil.extractUserId(token);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                .body(Map.of("success", false, "message", "Invalid JWT token"));
+        }
         if (todoDto.getDueDate() == null) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST)
                     .body(java.util.Collections.singletonMap("error", "Due date is missing"));
         }
-        TodoDto createdTodo = service.addTodo(todoDto);
+        TodoDto createdTodo = service.addTodo(todoDto, userId);
         return new ResponseEntity<>(createdTodo, HttpStatus.CREATED);
     }
 

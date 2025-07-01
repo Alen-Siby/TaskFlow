@@ -4,12 +4,16 @@ import com.alen.todoapp.model.Todo;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 
 
 @Repository
 public interface TodoRepo extends JpaRepository<Todo, Integer> {
 
-    // ArrayList to store Todo objects
+    List<Todo> findByUser_Id(Long userId);
+
+//    // ArrayList to store Todo objects
 //    List<Todo> todos = new ArrayList<>();
 //
 //    // Constructor: injecting sample Todo objects into the ArrayList

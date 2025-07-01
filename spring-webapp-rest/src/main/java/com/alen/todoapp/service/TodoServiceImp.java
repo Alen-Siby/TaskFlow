@@ -4,7 +4,9 @@ import com.alen.todoapp.dto.TodoDto;
 import com.alen.todoapp.exception.AppException;
 import com.alen.todoapp.model.Status;
 import com.alen.todoapp.model.Todo;
+import com.alen.todoapp.model.Users;
 import com.alen.todoapp.repo.TodoRepo;
+import com.alen.todoapp.repo.UserRepo;
 import com.alen.todoapp.utils.mapper.TodoMapper;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -15,17 +17,20 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class TodoServiceImp implements TodoService {
     private static final Logger logger = LogManager.getLogger(TodoServiceImp.class);
     private final TodoRepo repo;
     private final TodoMapper mapper;
+    private final UserRepo userRepo;
 
     @Autowired
-    public TodoServiceImp(TodoRepo repo, TodoMapper mapper) {
+    public TodoServiceImp(TodoRepo repo, TodoMapper mapper, UserRepo userRepo) {
         this.repo = repo;
         this.mapper = mapper;
+        this.userRepo = userRepo;
     }
 
     @Override
@@ -61,6 +66,32 @@ public class TodoServiceImp implements TodoService {
             todoDto.setCategory(com.alen.todoapp.model.Category.PERSONAL);
         }
         Todo todo = mapper.toTodo(todoDto, true);
+        Todo saved = repo.save(todo);
+        logger.info("Added new Todo: " + saved);
+        return mapper.toTodoDto(saved);
+    }
+
+    @Override
+    public TodoDto addTodo(TodoDto todoDto, Long userId) {
+        if (todoDto.getTopic() != null && repo.findAll().stream()
+                .filter(t -> t.getTopic() != null)
+                .anyMatch(t -> t.getTopic().equalsIgnoreCase(todoDto.getTopic()))) {
+            throw new AppException("Todo with title '" + todoDto.getTopic() + "' already exists", HttpStatus.CONFLICT);
+        }
+        if (todoDto.getStatus() == null) {
+            todoDto.setStatus(Status.IN_PROGRESS);
+        }
+        if (todoDto.getPriority() == null) {
+            todoDto.setPriority(com.alen.todoapp.model.Priority.LOW);
+        }
+        if (todoDto.getCategory() == null) {
+            todoDto.setCategory(com.alen.todoapp.model.Category.PERSONAL);
+        }
+        Todo todo = mapper.toTodo(todoDto, true);
+        // Set the user on the Todo
+        Users user = userRepo.findById(userId)
+                .orElseThrow(() -> new AppException("User not found for id: " + userId, HttpStatus.BAD_REQUEST));
+        todo.setUser(user);
         Todo saved = repo.save(todo);
         logger.info("Added new Todo: " + saved);
         return mapper.toTodoDto(saved);
@@ -114,5 +145,11 @@ public class TodoServiceImp implements TodoService {
             todo.setCategory(com.alen.todoapp.model.Category.PERSONAL);
         }
         return todo;
+    }
+
+    @Override
+    public List<TodoDto> getTodosByUserId(Long userId) {
+        List<Todo> todos = repo.findByUser_Id(userId);
+        return todos.stream().map(mapper::toTodoDto).toList();
     }
 }
