@@ -1,37 +1,52 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
+import { AnimatePresence } from 'framer-motion';
 import { LandingPage } from './components/landing/LandingPage';
 import { TaskApp } from './components/app/TaskApp';
-import { CustomCursor } from './components/ui/CustomCursor';
-import { useTheme } from './hooks/useTheme';
-
-type AppView = 'landing' | 'app';
+import { AuthModal } from './components/auth/AuthModal';
+import { useToast, ToastContainer } from './components/ui/Toast';
 
 function App() {
-  const [currentView, setCurrentView] = useState<AppView>('landing');
-  const { theme } = useTheme();
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
+  const [sessionKey, setSessionKey] = useState<string | null>(null); // Key to reset TaskApp state
+  const { toasts, addToast, removeToast } = useToast();
 
-  // Initialize theme on app start
   useEffect(() => {
-    // Theme is automatically applied by the useTheme hook
+    const token = localStorage.getItem('token');
+    const userId = localStorage.getItem('userId');
+    if (token && userId) {
+      setIsLoggedIn(true);
+      setSessionKey(userId);
+    }
   }, []);
 
-  const handleGetStarted = () => {
-    setCurrentView('app');
+  const handleLoginSuccess = () => {
+    const userId = localStorage.getItem('userId');
+    setIsLoggedIn(true);
+    setIsAuthModalOpen(false);
+    if(userId) setSessionKey(userId);
+    addToast('success', 'Login successful!');
   };
 
-  const handleBackToLanding = () => {
-    setCurrentView('landing');
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    localStorage.removeItem('userId');
+    setIsLoggedIn(false);
+    setSessionKey(null);
+    addToast('info', 'You have been logged out.');
   };
 
   return (
     <div className="app">
-      <CustomCursor />
-      
-      {currentView === 'landing' ? (
-        <LandingPage onGetStarted={handleGetStarted} />
+      <ToastContainer toasts={toasts} onRemove={removeToast} />
+      {isLoggedIn && sessionKey ? (
+        <TaskApp key={sessionKey} onLogout={handleLogout} addToast={addToast} />
       ) : (
-        <TaskApp onBack={handleBackToLanding} />
+        <LandingPage onGetStarted={() => setIsAuthModalOpen(true)} />
       )}
+      <AnimatePresence>
+        {isAuthModalOpen && <AuthModal onClose={() => setIsAuthModalOpen(false)} onLoginSuccess={handleLoginSuccess} addToast={addToast}/>}
+      </AnimatePresence>
     </div>
   );
 }

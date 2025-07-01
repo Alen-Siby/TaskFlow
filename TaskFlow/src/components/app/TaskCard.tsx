@@ -1,21 +1,20 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useSortable } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
-import { MoreVertical, Calendar, Flag, Edit2, Trash2 } from 'lucide-react';
-import { Task } from '../../types';
-import { useTasks } from '../../hooks/useTasks';
+import { MoreVertical, Calendar, Flag, Edit2, Trash2, ChevronDown, CheckCircle, Clock, XCircle, Loader } from 'lucide-react';
+import { Task, TaskStatus } from '../../types';
 import { useToast } from "../ui/Toast";
 
 interface TaskCardProps {
   task: Task;
-  onToggle: (id: string) => void;
+  onStatusChange: (id: string, status: TaskStatus) => void;
   onEdit: (task: Task) => void;
   onDelete: (id: string) => void;
 }
 
-export const TaskCard: React.FC<TaskCardProps> = ({ task, onToggle, onEdit, onDelete }) => {
-  const [showActions, setShowActions] = useState(false);
+export const TaskCard: React.FC<TaskCardProps> = ({ task, onStatusChange, onEdit, onDelete }) => {
+  const [showStatusMenu, setShowStatusMenu] = useState(false);
   
   const {
     attributes,
@@ -37,6 +36,13 @@ export const TaskCard: React.FC<TaskCardProps> = ({ task, onToggle, onEdit, onDe
     high: 'text-red-500 bg-red-50 dark:bg-red-900/20',
   };
 
+  const statusConfig: Record<TaskStatus, { label: string; icon: React.ElementType; color: string }> = {
+    PENDING: { label: 'Pending', icon: Clock, color: 'text-orange-600 bg-orange-100 dark:bg-orange-900/30 dark:text-orange-300' },
+    IN_PROGRESS: { label: 'In Progress', icon: Loader, color: 'text-blue-600 bg-blue-100 dark:bg-blue-900/30 dark:text-blue-300' },
+    COMPLETED: { label: 'Completed', icon: CheckCircle, color: 'text-green-600 bg-green-100 dark:bg-green-900/30 dark:text-green-300' },
+    CANCELLED: { label: 'Cancelled', icon: XCircle, color: 'text-red-600 bg-red-100 dark:bg-red-900/30 dark:text-red-300' },
+  };
+
   const categoryColors = [
     'bg-blue-100 text-blue-800 dark:bg-blue-900/20 dark:text-blue-300',
     'bg-purple-100 text-purple-800 dark:bg-purple-900/20 dark:text-purple-300',
@@ -46,40 +52,9 @@ export const TaskCard: React.FC<TaskCardProps> = ({ task, onToggle, onEdit, onDe
 
   const categoryColorIndex = Math.abs(task.category.charCodeAt(0)) % categoryColors.length;
 
-  const { tasks, isLoading, addTask, updateTask, deleteTask, toggleTask, reorderTasks, setTasks } = useTasks();
   const { addToast } = useToast();
 
-  useEffect(() => {
-    // Fetch todos from backend on mount
-    const fetchTodos = async () => {
-      try {
-        const response = await fetch('http://localhost:8081/todo');
-        if (!response.ok) {
-          throw new Error('Failed to fetch todos from backend');
-        }
-        const backendTodos = await response.json();
-        // Map backend fields to frontend Task type
-        const mappedTodos = backendTodos.map((todo: any) => ({
-          ...todo,
-          id: String(todo.tid || todo.id || todo.TId), // ensure id is a string
-          title: todo.topic,
-          description: todo.discription,
-          priority: todo.priority?.toLowerCase?.() || 'medium',
-          category: todo.category?.toLowerCase?.() || '',
-          dueDate: todo.dueDate,
-          completed: todo.status === 'COMPLETED', // or however you want to map status
-          createdAt: todo.createdAt,
-          updatedAt: todo.updatedAt,
-        }));
-        setTasks(mappedTodos);
-      } catch (error) {
-        addToast('error', 'Failed to load tasks from backend');
-        console.error(error);
-      }
-    };
-    fetchTodos();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  const StatusIcon = statusConfig[task.status].icon;
 
   return (
     <motion.div
@@ -94,103 +69,114 @@ export const TaskCard: React.FC<TaskCardProps> = ({ task, onToggle, onEdit, onDe
         scale: 0.8, 
         transition: { duration: 0.2 } 
       }}
-      className={`glass-strong rounded-xl p-4 hover:shadow-lg transition-all duration-200 ${
+      className={`glass-strong rounded-xl p-6 hover:shadow-lg transition-all duration-200 min-h-[200px] flex flex-col ${
         isDragging ? 'opacity-50 scale-105' : ''
-      } ${task.completed ? 'opacity-75' : ''}`}
-      onMouseEnter={() => setShowActions(true)}
-      onMouseLeave={() => setShowActions(false)}
+      } ${task.status === 'COMPLETED' ? 'opacity-60 saturate-[.8] blur-[0.5px]' : ''}`}
     >
-      <div className="flex items-start justify-between mb-3">
-        <div className="flex items-center space-x-3 flex-1">
+      {/* Header with Status and Actions */}
+      <div className="flex items-start justify-between mb-4">
+        <div className="relative">
           <motion.button
-            onClick={() => onToggle(task.id)}
-            className={`w-5 h-5 rounded-full border-2 flex items-center justify-center transition-all duration-200 ${
-              task.completed
-                ? 'bg-green-500 border-green-500'
-                : 'border-gray-300 dark:border-gray-600 hover:border-green-500'
+            onClick={() => setShowStatusMenu(!showStatusMenu)}
+            className={`flex items-center space-x-1 px-2 py-0.5 rounded-full text-xs font-medium transition-colors ${
+              statusConfig[task.status].color
             }`}
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
           >
-            {task.completed && (
-              <motion.svg
-                initial={{ pathLength: 0 }}
-                animate={{ pathLength: 1 }}
-                transition={{ duration: 0.3 }}
-                className="w-3 h-3 text-white"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth={3}
-              >
-                <path d="M20 6L9 17l-5-5" />
-              </motion.svg>
-            )}
+            <StatusIcon className="w-4 h-4" />
+            <span>{statusConfig[task.status].label}</span>
+            <ChevronDown className="w-4 h-4" />
           </motion.button>
           
-          <div 
-            {...listeners} 
-            className="flex-1 cursor-grab active:cursor-grabbing"
-          >
-            <h3 className={`font-medium text-lg ${
-              task.completed ? 'line-through text-gray-500' : 'text-gray-900 dark:text-gray-100'
-            }`}>
-              {task.title}
-            </h3>
-            {task.description && (
-              <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
-                {task.description}
-              </p>
-            )}
-          </div>
-        </div>
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: showActions ? 1 : 0 }}
-          className="relative"
-        >
-          <button
-            className="p-1 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
-            onClick={() => setShowActions(!showActions)}
-          >
-            <MoreVertical className="w-4 h-4" />
-          </button>
-          
-          {showActions && (
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              className="absolute right-0 top-8 glass-strong rounded-lg shadow-lg p-1 z-10 min-w-[120px]"
+          {showStatusMenu && (
+            <motion.div 
+              className="absolute top-full left-0 mt-2 w-40 bg-white dark:bg-gray-800 rounded-lg shadow-lg z-[9999] p-1 border border-gray-200 dark:border-gray-700"
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
             >
-              <button
-                onClick={() => onEdit(task)}
-                className="w-full flex items-center space-x-2 px-3 py-2 text-sm rounded-md hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
-              >
-                <Edit2 className="w-4 h-4" />
-                <span>Edit</span>
-              </button>
-              <button
-                onClick={() => onDelete(task.id)}
-                className="w-full flex items-center space-x-2 px-3 py-2 text-sm rounded-md text-red-600 hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors"
-              >
-                <Trash2 className="w-4 h-4" />
-                <span>Delete</span>
-              </button>
+              {Object.keys(statusConfig).map((statusKey) => {
+                const MenuStatusIcon = statusConfig[statusKey as TaskStatus].icon;
+                const statusColor = statusConfig[statusKey as TaskStatus].color;
+                const textColor = statusColor.includes('text-') ? statusColor.split(' ').find(cls => cls.startsWith('text-')) : 'text-gray-700 dark:text-gray-300';
+                return (
+                <button
+                  key={statusKey}
+                  onClick={() => {
+                    onStatusChange(task.id, statusKey as TaskStatus);
+                    setShowStatusMenu(false);
+                  }}
+                  className="w-full flex items-center space-x-1 px-2 py-1 text-xs rounded-md hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+                >
+                    <MenuStatusIcon className={`w-4 h-4 ${textColor}`} />
+                  <span className={textColor}>{statusConfig[statusKey as TaskStatus].label}</span>
+                </button>
+                );
+              })}
             </motion.div>
           )}
-        </motion.div>
+        </div>
+
+        {/* Action Icons */}
+        <div className="flex items-center space-x-2">
+          <motion.button
+            onClick={() => onEdit(task)}
+            className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors group relative"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            title="Edit"
+          >
+            <Edit2 className="w-4 h-4 text-gray-600 dark:text-gray-400 group-hover:text-blue-600" />
+            <span className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap z-10">
+              Edit
+            </span>
+          </motion.button>
+          
+          <motion.button
+            onClick={() => onDelete(task.id)}
+            className="p-2 rounded-lg hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors group relative"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            title="Delete"
+          >
+            <Trash2 className="w-4 h-4 text-gray-600 dark:text-gray-400 group-hover:text-red-600" />
+            <span className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap z-10">
+              Delete
+            </span>
+          </motion.button>
+        </div>
       </div>
 
-      <div className="flex items-center justify-between">
-        <div className="flex items-center space-x-2">
-          <span className={`px-2 py-1 rounded-full text-xs font-medium ${categoryColors[categoryColorIndex]}`}>
-            {task.category}
-          </span>
-          
-          <div className={`flex items-center space-x-1 px-2 py-1 rounded-full text-xs ${priorityColors[task.priority]}`}>
-            <Flag className="w-3 h-3" />
-            <span className="capitalize">{task.priority}</span>
+      {/* Task Content */}
+      <div 
+        {...listeners} 
+        className="flex-1 cursor-grab active:cursor-grabbing"
+      >
+        <h3 className={`font-semibold text-lg mb-2 ${
+          task.status === 'COMPLETED' ? 'line-through text-gray-500 decoration-wavy' : 'text-gray-900 dark:text-gray-100'
+        }`}>
+          {task.title}
+        </h3>
+        {task.description && (
+          <p className="text-sm text-gray-600 dark:text-gray-400 mb-4 line-clamp-3">
+            {task.description}
+          </p>
+        )}
+      </div>
+
+      {/* Footer with Tags and Date */}
+      <div className="mt-auto">
+        <div className="flex items-center justify-between mb-3">
+          <div className="flex items-center space-x-2">
+            <span className={`px-2 py-1 rounded-full text-xs font-medium ${categoryColors[categoryColorIndex]}`}>
+              {task.category}
+            </span>
+            
+            <div className={`flex items-center space-x-1 px-2 py-1 rounded-full text-xs ${priorityColors[task.priority]}`}>
+              <Flag className="w-3 h-3" />
+              <span className="capitalize">{task.priority}</span>
+            </div>
           </div>
         </div>
 

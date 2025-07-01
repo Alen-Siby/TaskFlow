@@ -4,6 +4,7 @@ import { HeroSection } from './HeroSection';
 import { FeatureSection } from './FeatureSection';
 import { TestimonialSection } from './TestimonialSection';
 import { ThemeToggle } from '../ui/ThemeToggle';
+import { Button } from '../ui/Button';
 
 interface LandingPageProps {
   onGetStarted: () => void;
@@ -11,7 +12,7 @@ interface LandingPageProps {
 
 export const LandingPage: React.FC<LandingPageProps> = ({ onGetStarted }) => {
   return (
-    <div className="custom-cursor">
+    <div className="bg-white dark:bg-gray-900">
       {/* Header */}
       <motion.header
         initial={{ opacity: 0, y: -20 }}
@@ -26,7 +27,24 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onGetStarted }) => {
             <span className="text-xl font-bold">TaskFlow</span>
           </div>
           
-          <ThemeToggle />
+          <div className="flex items-center space-x-4">
+            <ThemeToggle />
+            <Button 
+              onClick={onGetStarted} 
+              variant="ghost" 
+              className="inline-flex text-white border-white/20 hover:bg-white/10"
+              // @ts-ignore
+              whileHover={{
+                scale: 1.05,
+                boxShadow: "0 0 15px rgba(255, 255, 255, 0.2)",
+                transition: { duration: 0.2 }
+              }}
+              // @ts-ignore
+              whileTap={{ scale: 0.95 }}
+            >
+              Login / Sign Up
+            </Button>
+          </div>
         </nav>
       </motion.header>
 

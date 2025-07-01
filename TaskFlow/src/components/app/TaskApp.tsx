@@ -1,23 +1,46 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowLeft } from 'lucide-react';
+import { LogOut } from 'lucide-react';
 import { TaskList } from './TaskList';
 import { TaskForm } from './TaskForm';
 import { FloatingActionButton } from './FloatingActionButton';
 import { ThemeToggle } from '../ui/ThemeToggle';
 import { useTasks } from '../../hooks/useTasks';
-import { useToast, ToastContainer } from '../ui/Toast';
-import { Task, TaskFormData } from '../../types';
+import { Task, TaskFormData, TaskStatus } from '../../types';
+import { API_BASE_URL } from '../../config';
 
 interface TaskAppProps {
-  onBack: () => void;
+  onLogout: () => void;
+  addToast: (type: 'success' | 'error' | 'info', message: string) => void;
 }
 
-export const TaskApp: React.FC<TaskAppProps> = ({ onBack }) => {
-  const { tasks, isLoading, addTask, updateTask, deleteTask, toggleTask, reorderTasks, setTasks } = useTasks();
-  const { toasts, addToast, removeToast } = useToast();
+export const TaskApp: React.FC<TaskAppProps> = ({ onLogout, addToast }) => {
+  const { tasks, isLoading, addTask, updateTask, deleteTask, reorderTasks, setTasks } = useTasks();
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [editingTask, setEditingTask] = useState<Task | null>(null);
+
+  const getAuthHeaders = (includeContentType = true) => {
+    const token = localStorage.getItem('token');
+    const headers: HeadersInit = {
+      'Authorization': `Bearer ${token}`,
+    };
+    if (includeContentType) {
+      headers['Content-Type'] = 'application/json';
+    }
+    return headers;
+  };
+
+  const mapBackendTodoToTask = (todo: any): Task => ({
+    id: todo.tid,
+    title: todo.topic,
+    description: todo.discription,
+    status: todo.status || 'PENDING',
+    priority: todo.priority ? todo.priority.toLowerCase() : 'low',
+    dueDate: todo.dueDate,
+    category: todo.category ? todo.category.toLowerCase() : 'personal',
+    createdAt: todo.createdAt,
+    updatedAt: todo.updatedAt,
+  });
 
   const handleAddTask = async (data: TaskFormData) => {
     try {
@@ -29,20 +52,18 @@ export const TaskApp: React.FC<TaskAppProps> = ({ onBack }) => {
         category: data.category.toUpperCase(),
         dueDate: data.dueDate,
       };
-      console.log('Form data to submit:', JSON.stringify(postData, null, 2));
-      const response = await fetch('http://localhost:8081/todo', {
+      const response = await fetch(`${API_BASE_URL}/todo`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: getAuthHeaders(),
         body: JSON.stringify(postData),
       });
       if (!response.ok) {
         throw new Error('Failed to save task to backend');
       }
       const savedTask = await response.json();
-      addTask(savedTask);
+      addTask(mapBackendTodoToTask(savedTask));
       addToast('success', 'Task created successfully!');
+      handleFormClose();
     } catch (error) {
       addToast('error', 'Failed to create task');
       console.error(error);
@@ -55,36 +76,34 @@ export const TaskApp: React.FC<TaskAppProps> = ({ onBack }) => {
       const postData = {
         topic: data.title,
         discription: data.description,
-        status: 'IN_PROGRESS',
+        status: editingTask.status,
         priority: data.priority.toUpperCase(),
         category: data.category.toUpperCase(),
         dueDate: data.dueDate,
       };
-      console.log('Edit data to submit:', JSON.stringify(postData, null, 2));
-      const response = await fetch(`http://localhost:8081/todo/${editingTask.id}`, {
+      const response = await fetch(`${API_BASE_URL}/todo/${editingTask.id}`, {
         method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: getAuthHeaders(),
         body: JSON.stringify(postData),
       });
       if (!response.ok) {
         throw new Error('Failed to update task in backend');
       }
-      const updatedTask = await response.json();
-      updateTask(editingTask.id, updatedTask);
+      const updatedTaskFromBackend = await response.json();
+      updateTask(editingTask.id, mapBackendTodoToTask(updatedTaskFromBackend));
       addToast('success', 'Task updated successfully!');
-      setEditingTask(null);
+      handleFormClose();
     } catch (error) {
       addToast('error', 'Failed to update task');
-      console.error(error);
+      console.error('Error updating task:', error);
     }
   };
 
   const handleDeleteTask = async (id: string) => {
     try {
-      const response = await fetch(`http://localhost:8081/todo/${id}`, {
+      const response = await fetch(`${API_BASE_URL}/todo/${id}`, {
         method: 'DELETE',
+        headers: getAuthHeaders(false),
       });
       if (!response.ok) {
         throw new Error('Failed to delete task in backend');
@@ -96,16 +115,42 @@ export const TaskApp: React.FC<TaskAppProps> = ({ onBack }) => {
       console.error(error);
     }
   };
-
-  const handleToggleTask = (id: string) => {
+  
+  const handleStatusChange = async (id: string, status: TaskStatus) => {
+    const task = tasks.find(t => t.id === id);
+    if (!task) return;
+    
+    const originalStatus = task.status;
+    updateTask(id, { ...task, status });
+    
     try {
-      toggleTask(id);
-      const task = tasks.find(t => t.id === id);
-      if (task) {
-        addToast('success', `Task ${task.completed ? 'uncompleted' : 'completed'}!`);
+      const postData = {
+        topic: task.title,
+        discription: task.description,
+        status: status,
+        priority: task.priority.toUpperCase(),
+        category: task.category.toUpperCase(),
+        dueDate: task.dueDate,
+      };
+
+      const response = await fetch(`${API_BASE_URL}/todo/${id}`, {
+        method: 'PUT',
+        headers: getAuthHeaders(),
+        body: JSON.stringify(postData),
+      });
+
+      if (!response.ok) {
+        const errorText = await response.text();
+        throw new Error(`Failed to update task in backend: ${response.status} ${errorText}`);
       }
+      
+      const updatedTaskFromBackend = await response.json();
+      updateTask(id, mapBackendTodoToTask(updatedTaskFromBackend));
+      addToast('success', `Task status updated to ${status}`);
     } catch (error) {
-      addToast('error', 'Failed to update task');
+      console.error('Error updating task status:', error);
+      updateTask(id, { ...task, status: originalStatus }); // Rollback
+      addToast('error', 'Failed to update task status');
     }
   };
 
@@ -127,40 +172,41 @@ export const TaskApp: React.FC<TaskAppProps> = ({ onBack }) => {
     }
   };
 
-  useEffect(() => {
-    // Fetch todos from backend on mount
-    const fetchTodos = async () => {
+  const fetchTodos = useCallback(async () => {
       try {
-        const response = await fetch('http://localhost:8081/todo');
+      const token = localStorage.getItem('token');
+      if (!token) {
+        addToast('info', 'Please log in to view your tasks.');
+        if (setTasks) setTasks([]);
+        return;
+      }
+      const response = await fetch(`${API_BASE_URL}/todo`, {
+        headers: getAuthHeaders(false),
+      });
         if (!response.ok) {
+        if (response.status === 403) {
+          addToast('error', 'Session expired. Please log in again.');
+          onLogout();
+        }
           throw new Error('Failed to fetch todos from backend');
         }
         const backendTodos = await response.json();
-        // Map backend fields to frontend Task type
-        const mappedTodos = backendTodos.map((todo: any) => ({
-          ...todo,
-          title: todo.topic,
-          description: todo.discription,
-        }));
-        // Replace local state with backend todos
-        // If you use setTasks directly, otherwise use a method from useTasks
-        if (typeof setTasks === 'function') {
+        const mappedTodos = backendTodos.map(mapBackendTodoToTask);
+        if (setTasks) {
           setTasks(mappedTodos);
-        } else if (typeof addTask === 'function') {
-          (mappedTodos as any[]).forEach((task: any) => addTask(task));
         }
       } catch (error) {
         addToast('error', 'Failed to load tasks from backend');
         console.error(error);
       }
-    };
+  }, [addToast, onLogout, setTasks]);
+
+  useEffect(() => {
     fetchTodos();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [fetchTodos]);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-purple-50 dark:from-gray-900 dark:to-gray-800">
-      {/* Header */}
       <motion.header
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -168,15 +214,6 @@ export const TaskApp: React.FC<TaskAppProps> = ({ onBack }) => {
       >
         <nav className="max-w-4xl mx-auto px-6 py-4 flex items-center justify-between">
           <div className="flex items-center space-x-4">
-            <motion.button
-              onClick={onBack}
-              className="p-2 rounded-lg hover:bg-white/20 transition-colors"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <ArrowLeft className="w-5 h-5" />
-            </motion.button>
-            
             <div className="flex items-center space-x-2">
               <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
                 <span className="text-white font-bold text-sm">TF</span>
@@ -184,12 +221,21 @@ export const TaskApp: React.FC<TaskAppProps> = ({ onBack }) => {
               <span className="text-xl font-bold">TaskFlow</span>
             </div>
           </div>
-          
-          <ThemeToggle />
+          <div className="flex items-center space-x-4">
+            <ThemeToggle />
+            <motion.button
+              onClick={onLogout}
+              className="p-2 rounded-lg hover:bg-white/20 transition-colors flex items-center space-x-2"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <LogOut className="w-5 h-5" />
+              <span>Logout</span>
+            </motion.button>
+          </div>
         </nav>
       </motion.header>
 
-      {/* Main Content */}
       <main className="max-w-4xl mx-auto px-6 py-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -204,7 +250,7 @@ export const TaskApp: React.FC<TaskAppProps> = ({ onBack }) => {
 
         <TaskList
           tasks={tasks}
-          onToggle={handleToggleTask}
+          onStatusChange={handleStatusChange}
           onEdit={handleEditClick}
           onDelete={handleDeleteTask}
           onReorder={reorderTasks}
@@ -212,19 +258,15 @@ export const TaskApp: React.FC<TaskAppProps> = ({ onBack }) => {
         />
       </main>
 
-      {/* Floating Action Button */}
       <FloatingActionButton onNewTask={() => setIsFormOpen(true)} />
 
-      {/* Task Form Modal */}
       <TaskForm
         isOpen={isFormOpen}
         onClose={handleFormClose}
         onSubmit={handleFormSubmit}
-        editingTask={editingTask}
+        task={editingTask}
+        addToast={addToast}
       />
-
-      {/* Toast Notifications */}
-      <ToastContainer toasts={toasts} onRemove={removeToast} />
     </div>
   );
 };

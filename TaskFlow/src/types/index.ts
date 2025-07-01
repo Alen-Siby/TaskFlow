@@ -1,11 +1,13 @@
+export type TaskStatus = 'PENDING' | 'IN_PROGRESS' | 'COMPLETED' | 'CANCELLED';
+
 export interface Task {
   id: string;
   title: string;
   description: string;
+  status: TaskStatus;
   priority: 'low' | 'medium' | 'high';
   dueDate: string;
   category: string;
-  completed: boolean;
   createdAt: string;
   updatedAt: string;
 }

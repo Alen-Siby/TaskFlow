@@ -65,9 +65,14 @@ export const TaskForm: React.FC<TaskFormProps> = ({
     if (!formData.title.trim()) {
       newErrors.title = 'Title is required';
     }
-
     if (!formData.category.trim()) {
       newErrors.category = 'Category is required';
+    }
+    if (!formData.dueDate) {
+      newErrors.dueDate = 'Due date is required';
+    }
+    if (!formData.description.trim() || formData.description.trim().length < 5) {
+      newErrors.description = 'Description must be at least 5 characters';
     }
 
     setErrors(newErrors);
@@ -76,19 +81,9 @@ export const TaskForm: React.FC<TaskFormProps> = ({
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
-    if (!validateForm()) return;
-
-    const submitData = {
-      ...formData,
-      dueDate: formData.dueDate ? new Date(formData.dueDate).toISOString() : '',
-    };
-
-    // Log the form data as JSON for debugging
-    console.log('Form data to submit:', JSON.stringify(submitData, null, 2));
-
-    onSubmit(submitData);
-    onClose();
+    if (validateForm()) {
+      onSubmit(formData);
+    }
   };
 
   const handleAddTask = async (data: TaskFormData) => {

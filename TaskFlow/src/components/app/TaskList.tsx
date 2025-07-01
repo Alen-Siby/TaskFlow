@@ -16,12 +16,12 @@ import {
   verticalListSortingStrategy,
 } from '@dnd-kit/sortable';
 import { TaskCard } from './TaskCard';
-import { Task } from '../../types';
+import { Task, TaskStatus } from '../../types';
 import { CheckCircle, Clock, AlertCircle } from 'lucide-react';
 
 interface TaskListProps {
   tasks: Task[];
-  onToggle: (id: string) => void;
+  onStatusChange: (id: string, status: TaskStatus) => void;
   onEdit: (task: Task) => void;
   onDelete: (id: string) => void;
   onReorder: (startIndex: number, endIndex: number) => void;
@@ -30,7 +30,7 @@ interface TaskListProps {
 
 export const TaskList: React.FC<TaskListProps> = ({
   tasks,
-  onToggle,
+  onStatusChange,
   onEdit,
   onDelete,
   onReorder,
@@ -53,10 +53,10 @@ export const TaskList: React.FC<TaskListProps> = ({
     }
   };
 
-  const completedTasks = tasks.filter(task => task.completed);
-  const pendingTasks = tasks.filter(task => !task.completed);
+  const completedTasks = tasks.filter(task => task.status === 'COMPLETED');
+  const pendingTasks = tasks.filter(task => task.status === 'PENDING' || task.status === 'IN_PROGRESS');
   const overdueTasks = tasks.filter(task => 
-    !task.completed && 
+    task.status !== 'COMPLETED' && 
     task.dueDate && 
     new Date(task.dueDate) < new Date()
   );
@@ -81,6 +81,8 @@ export const TaskList: React.FC<TaskListProps> = ({
       color: 'text-red-500' 
     },
   ];
+
+  const userId = localStorage.getItem('userId');
 
   if (isLoading) {
     return (
@@ -152,13 +154,13 @@ export const TaskList: React.FC<TaskListProps> = ({
         onDragEnd={handleDragEnd}
       >
         <SortableContext items={tasks.map(task => task.id)} strategy={verticalListSortingStrategy}>
-          <div className="space-y-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
             <AnimatePresence>
               {tasks.map((task) => (
                 <TaskCard
                   key={task.id}
                   task={task}
-                  onToggle={onToggle}
+                  onStatusChange={onStatusChange}
                   onEdit={onEdit}
                   onDelete={onDelete}
                 />
