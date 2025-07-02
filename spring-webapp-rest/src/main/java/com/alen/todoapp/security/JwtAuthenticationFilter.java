@@ -52,4 +52,10 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             response.getWriter().write(json);
         }
     }
+
+    @Override
+    protected boolean shouldNotFilter(HttpServletRequest request) throws ServletException {
+        String path = request.getServletPath();
+        return path.equals("/auth/register") || path.equals("/auth/login") || path.equals("/auth/signup");
+    }
 }
