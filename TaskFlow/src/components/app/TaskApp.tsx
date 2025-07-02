@@ -264,8 +264,7 @@ export const TaskApp: React.FC<TaskAppProps> = ({ onLogout, addToast }) => {
         isOpen={isFormOpen}
         onClose={handleFormClose}
         onSubmit={handleFormSubmit}
-        task={editingTask}
-        addToast={addToast}
+        editingTask={editingTask}
       />
     </div>
   );

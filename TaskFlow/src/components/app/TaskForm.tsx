@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { X, Plus, Flag, ListTodo, Calendar, Folder, ChevronDown, ChevronUp, Briefcase, BookOpen, Heart, Sun, User } from 'lucide-react';
 import { Task, TaskFormData } from '../../types';
 import { Button } from '../ui/Button';
+import { API_BASE_URL } from '../../config';
 
 interface TaskFormProps {
   isOpen: boolean;
@@ -93,7 +94,7 @@ export const TaskForm: React.FC<TaskFormProps> = ({
       const postData = { ...rest, topic: title };
 
       // Send to Spring Boot backend
-      const response = await fetch('http://localhost:8081/todo', {
+      const response = await fetch(`${API_BASE_URL}/todo`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
